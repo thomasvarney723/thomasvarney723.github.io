@@ -2,7 +2,6 @@
 layout: post
 title:  "An introduction to programming using the nicest language I know"
 date:   2017-12-11 22:44:00 -0600
-author: "Thomas Varney"
 categories: jekyll update
 ---
 
