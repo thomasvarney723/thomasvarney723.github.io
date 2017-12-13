@@ -13,7 +13,7 @@ categories: jekyll update
     };
 </script>
 
-<script src="http://app.klipse.tech/plugin_prod/js/klipse_plugin.min.js"></script>
+<script type="text/javascript" src="http://app.klipse.tech/plugin_prod/js/klipse_plugin.min.js"></script>
 
 In this short tutorial, we’ll cover the minimal knowledge necessary to begin writing programs. As it turns out programming is a lot like math.
 
@@ -23,8 +23,8 @@ Programming differs from math in two important ways. Firstly, when writing progr
 
 Secondly, and most importantly, programming languages have collections! Most math curriculum through high school deals almost exclusively with scalar types. That is every value, or placeholder for a value, in an expression is indivisible. 4 is a scalar value as is 273. Numbers, in this case, and their accompanied operations like addition are very nice for expressing a great deal of procedures but they’re frequently insufficient for all but the most boring of programs. Collections in a programming language allow us to do more by wrapping many values together into one value and manipulating it irrespective of what’s inside.
 
-You may already know that a program is just a series of smaller procedures specified in a particular order. Let’s say you want to write a series of steps to sort a collection of numbers. One possible solution might go something like this: 
-
+<p >You may already know that a program is just a series of smaller procedures specified in a particular order. Let’s say you want to write a series of steps to sort a collection of numbers. One possible solution might go something like this: 
+</p>
 1. Take the first number in the unsorted collection and place the remaining numbers into one of two groups on either side. Lesser numbers go in the group to the left, greater numbers to the right. 
 2. Repeat this procedure on both of your new groups until they are empty. 
 3. Finally, from left to right, concatenate (string together into a collection) all the students back into one group in their new order.
