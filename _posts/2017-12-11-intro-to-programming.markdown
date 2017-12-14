@@ -9,7 +9,7 @@ categories: jekyll update
 
 <script>
     window.klipse_settings = {
-        selector: '.language-klipse', // css selector for the html elements you want to klipsify
+        selector: ".language-klipse" // css selector for the html elements you want to klipsify
     };
 </script>
 
