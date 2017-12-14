@@ -5,16 +5,6 @@ date:   2017-12-11 22:44:00 -0600
 categories: jekyll update
 ---
 
-<link rel="stylesheet" type="text/css" href="http://app.klipse.tech/css/codemirror.css">
-
-<script>
-    window.klipse_settings = {
-        selector: ".language-klipse" // css selector for the html elements you want to klipsify
-    };
-</script>
-
-<script type="text/javascript" src="http://app.klipse.tech/plugin_prod/js/klipse_plugin.min.js"></script>
-
 In this short tutorial, we’ll cover the minimal knowledge necessary to begin writing programs. As it turns out programming is a lot like math.
 
 Wait! Don’t leave just yet! Fortunately, programming is nothing like the math classes you’ve likely been subjected to in school.
@@ -267,3 +257,5 @@ At this point you know nearly everything required to write a program of any magn
 Some of the information in this post may only be approximately true but further refinements will have to be left for another time.
 
 Happy computing!
+
+{% include klipse.html %}
