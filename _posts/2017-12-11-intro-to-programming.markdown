@@ -81,7 +81,7 @@ Sometimes when the output is a vector, it will be shown with parens instead of s
 
 Built-in functions, scalar data and collections of data are all well and good but what’s the point of writing an expression that returns the same result every time? We could just as easily write the output instead of the expression. There isn’t a point. To do any useful work, we need to build our own functions that can return a different output depending on the input.
 
-</br>
+<br>
 
 Let’s say you want the ability to test whether a number is less than 6. Testing 17 could be written like (< 17 6). To make this more general so we can apply it to any number, we first insert a variable name where we would like the input to our function to be substituted. You can choose any name you like for the variable. Then wrap the list in the fn function and place your variable name in a vector as the first input to fn. 
 
