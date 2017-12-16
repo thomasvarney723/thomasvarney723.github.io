@@ -66,14 +66,18 @@ Vectors have functions appropriate for their type just as numbers do.
 </code></pre>
 
 <pre><code class="language-klipse">
+(last [3 2 1])
+</code></pre>
+
+<pre><code class="language-klipse">
 (rest [3 2 1])
 </code></pre>
 
 <pre><code class="language-klipse">
-(last [3 2 1])
+(butlast [3 2 1])
 </code></pre>
 
-Sometimes when the output is a vector, it will be shown with parens instead of square brackets as in the examples containing conj and rest. Don’t worry about this for now.
+Sometimes when the output is a vector, it will be shown with parens instead of square brackets as in the examples containing rest and butlast. Don’t worry about this for now.
 
 Built-in functions, scalar data and collections of data are all well and good but what’s the point of writing an expression that returns the same result every time? We could just as easily write the output instead of the expression. There isn’t a point. To do any useful work, we need to build our own functions that can return a different output depending on the input.
 
