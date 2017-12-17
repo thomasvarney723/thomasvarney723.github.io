@@ -79,7 +79,7 @@ Vectors have functions appropriate for their type just as numbers do.
 
 Sometimes when the output is a vector, it will be shown with parens instead of square brackets as in the examples containing rest and butlast. Don’t worry about this for now.
 
-Built-in functions, scalar data and collections of data are all well and good but what’s the point of writing an expression that returns the same result every time? We may as well give the computer a break and write the result instead of the expression. There isn’t a point. To do any useful work, we need to build our own functions that can return a different output depending on the input.
+Built-in functions, scalar data and collections of data are all well and good but what’s the point of writing an expression that returns the same result every time? We may as well give the computer a break and write the result instead of the expression. There isn’t a point; to do any useful work we need to build our own functions that can return a different output depending on the input.
 
 <br>
 
@@ -104,6 +104,8 @@ This works but is cumbersome. If we intend to use this same function in more tha
   (fn [cool-number] (< cool-number 6)))
 
 (less-than-6? 17)
+
+(less-than-6? -4)
 </code></pre>
 
 That’s more like it!
@@ -199,7 +201,9 @@ Because concatenation is done only once at the end of our sorting function, we�
 #_(sort-numbers [6 5 8 11 3 2 7 9 4 1 10 12])
 </code></pre>
 
-We’re almost there! If you now apply sort-numbers to our test data by uncommenting the last line, you’ll receive some sort of stack overflow error. This is because there is nothing that stops the recursion from terminating. At the two places where we call sort-numbers, our function goes around and around. It’s for this reason (take-while not-empty ... was needed in the example showing the left evaluation branch. We need the recursion to stop when some criteria is met. According to our english program the terminating condition is when the collection no longer has anything in it. if is a supremely useful function that will enable us to insert this check. if takes three inputs: a test, an output if the test evaluates to true and an output if the test evaluates to false. Our test for an empty collection can be written simply as (= [] coll) and the false branch of our if function will contain the logic we've already covered.
+We’re almost there! If you now apply sort-numbers to our test data by uncommenting the last line, you’ll receive some sort of stack overflow error. This is because there is nothing that stops the recursion from terminating. At the two places where we call sort-numbers, our function goes around and around. It’s for this reason (take-while not-empty ... was needed in the example showing the left evaluation branch. We need the recursion to stop when some criteria is met. According to our english program the terminating condition is when the collection no longer has anything in it. if is a supremely useful function that will enable us to insert this check.
+
+if takes three inputs: a test, an output if the test evaluates to true and an output if the test evaluates to false. Our test for an empty collection can be written simply as (= [] coll) and the false branch of our if function will contain the logic we've already covered.
 
 <pre><code class="language-klipse">
 (def sort-numbers
