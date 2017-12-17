@@ -13,7 +13,7 @@ Wait! Don’t leave just yet! Fortunately, programming is nothing like the math 
 
 Programming differs from math in two important ways. Firstly, when writing programs you’re always accompanied by a partner. As with any good group-work the division of labor in this relationship is rather lopsided. Your partner in this case is, of course, the computer. While being far more rational than you (someone had to say it), the computer can’t think for itself and will do virtually anything you ask it to. Its toil frees you from solving for x for the zillionth time in a cramped chair and desk. Delegating the task of evaluation to the computer turns an otherwise dry task into a creative one.
 
-Secondly, and most importantly, programming languages have collections. Most math curriculum through high school deals almost exclusively with scalar types. That is every value, or placeholder for a value, in an expression is indivisible. 4 is a scalar value as is 273. Numbers, in this case, and their accompanied operations like addition are frequently insufficient for all but the most boring of programs. Collections in a programming language allow us to do more by wrapping many values together into one value and manipulating it irrespective of what’s inside.
+Secondly, and most importantly, programming languages have collections. Most math curriculum through high school deals almost exclusively with scalar types. That is every value, or placeholder for a value, in an expression is indivisible. 4 is a scalar value as is 273.24. Numbers, in this case, and their accompanied operations like addition are frequently insufficient for all but the most boring of programs. Collections in a programming language allow us to do more by wrapping many values together into one value and manipulating it irrespective of what’s inside.
 
 You may already know that a program is just a series of smaller procedures specified in a particular order. Let’s say you want to write a series of steps to sort a collection of numbers. One possible solution might go something like this: 
 
@@ -32,7 +32,7 @@ Application is how we combine functions and data to build new forms. If function
 (* 3 -4.9 5/7)
 </code></pre>
 
-In the more familiar mathematical syntax this is equivalent to ‘3 x -4.9 x 5/7’.  All the code in this tutorial is editable and the computer’s output from each snippet is displayed just below it. Try swapping one of the inputs for false. Because false has no meaning in the context of addition the computer will complain loudly.
+In the more familiar mathematical syntax this is equivalent to ‘3 x -4.9 x 5/7’.  All the code in this tutorial can be editted by you and the computer’s output from each snippet is displayed just below it. Try swapping one of the inputs for false. Because false has no meaning in the context of multiplication the computer will complain loudly.
 
 Chaining computations can be achieved by nesting expressions and this can be done to any depth.
 
@@ -162,7 +162,7 @@ filterv takes a function and a collection and returns only the elements of that 
  
 We’ll need this repeating behavior in our program.
 
-Testing ideas like this by giving the computer snippets of code and examining the return value is akin to having a conversation with the computer in which you can bounce ideas off it (“Do these pants go with my shoes?”).
+Testing ideas like this by giving the computer snippets of code and examining the output is akin to having a conversation with the computer in which you can bounce ideas off it (“Do these pants go with my shoes?”).
 
 To collect elements which go in the right-side group we need only to select the elements which didn’t make the cut for the left-side group. We can do this in the same way but slip not into the function we pass to filter.
 
@@ -199,7 +199,7 @@ Because concatenation is done only once at the end of our sorting function, we�
 #_(sort-numbers [6 5 8 11 3 2 7 9 4 1 10 12])
 </code></pre>
 
-We’re almost there! If you now apply sort-numbers to our test data by uncommenting the last line, you’ll receive some sort of stack overflow error. This is because there is nothing that stops the recursion from terminating. At the two places where we call sort-numbers, our function goes around and around. It’s for this reason (take-while not-empty ... was needed in the example showing the left evaluation branch. We need evaluation to stop when some criteria is met. According to our english program the terminating condition is when the collection no longer has anything in it. if is a supremely useful function that will enable us to insert this check. if takes three inputs: a test, an output if the test evaluates to true and an output if the test evaluates to false. Our test for an empty collection can be written simply as (= [] coll) and the false branch of our if function will contain the logic we've already covered.
+We’re almost there! If you now apply sort-numbers to our test data by uncommenting the last line, you’ll receive some sort of stack overflow error. This is because there is nothing that stops the recursion from terminating. At the two places where we call sort-numbers, our function goes around and around. It’s for this reason (take-while not-empty ... was needed in the example showing the left evaluation branch. We need the recursion to stop when some criteria is met. According to our english program the terminating condition is when the collection no longer has anything in it. if is a supremely useful function that will enable us to insert this check. if takes three inputs: a test, an output if the test evaluates to true and an output if the test evaluates to false. Our test for an empty collection can be written simply as (= [] coll) and the false branch of our if function will contain the logic we've already covered.
 
 <pre><code class="language-klipse">
 (def sort-numbers
