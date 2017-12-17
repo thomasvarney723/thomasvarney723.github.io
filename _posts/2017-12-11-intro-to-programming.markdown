@@ -24,15 +24,16 @@ You may already know that a program is just a series of smaller procedures speci
 Treating the numbers as a collection allows us to easily express a procedure to sort it. Notice that terms like ‘first’, ‘rest’, ‘left’, ‘right’ and ‘concatenate’ are operations appropriate for collections just as arithmetic is for numbers.
 
 While the steps above make for a perfectly reasonable program, English might as well be Greek to your servile pal the computer. We’ll need to write our program in terms even it can understand. This is where a programming language comes in.
-The language we’ll be using is a simple one comprised of only three things: functions, data and application. We’ve already mentioned numbers and collections, they fall into the category of data. Data is static and there is little more to it than what you see. Functions, little programs in their own right, are the doers that make a program worth writing at all. In our english program ‘first’, ‘rest’, ‘left’, ‘right’ and ‘concatenate’ acted as functions.
 
-Application is how we combine functions and data to build new forms. If functions were verbs and data nouns, application would be how we form sentences. Application is expressed with a grouping of parenthesis in which the first element is always a function and any subsequent elements are inputs to the function. Often when we apply a function to data we say that we call the function on that data and it returns a result. Let’s multiply some numbers.
+The language we’ll be using is a simple one comprised of only three things: functions, data and application. We’ve already mentioned numbers and collections, they fall into the category of data. Data is static and there is little more to it than what you see. Functions, little programs in their own right, are what make a program do anything at all. Application is how we combine functions and data to build new forms. If functions were verbs and data nouns, application would be how we form sentences.
+
+Application is expressed with a grouping of parenthesis in which the first element is always a function and any subsequent elements are inputs to the function. Often when we apply a function to data we say that we call the function on that data and it returns a result. Let’s multiply some numbers.
 
 <pre><code class="language-klipse">
 (* 3 -4.9 5/7)
 </code></pre>
 
-In the more familiar mathematical syntax this is equivalent to ‘3 x -4.9 x 5/7’.  All the code in this tutorial can be editted by you and the computer’s output from each snippet is displayed just below it. Try swapping one of the inputs for false. Because false has no meaning in the context of multiplication the computer will complain loudly.
+In the more familiar mathematical syntax this is equivalent to ‘3 x -4.9 x 5/7’.  All the code in this tutorial can be editted and the computer will reevaluate it and display the output from each snippet just below it. Try swapping one of the inputs for false. Because false has no meaning in the context of multiplication the computer will complain loudly.
 
 Chaining computations can be achieved by nesting expressions and this can be done to any depth.
 
@@ -42,11 +43,11 @@ Chaining computations can be achieved by nesting expressions and this can be don
 
 This is equivalent to ‘2 / (3 - 5  - (1 + 2) - -10)’.
 
-Now what about those collections I promised you? Vectors, one type of collection, are notated with square brackets instead of parens. Vectors too can be nested to any depth. [\$ "Hickey" > [99999999 true]] is a vector of four items. Vectors can contain a mix of different types; in this case: a character, string, function and another vector containing an integer and a boolean. Also note that ordering matters.
+Now what about those collections I promised you? Vectors, one type of collection, are notated with square brackets instead of parens. Vectors too can be nested to any depth. [\$ "Hickey" -> [cat true]] is a vector of four items. Vectors can contain a mix of different types; in this case: a character, string, macro and another vector containing a function and a boolean. Also note that ordering matters.
 
 <pre><code class="language-klipse">
-(= [\$ "Hickey" > [99999999 true]] 
-   ["Hickey" [99999999 true] \$ >])
+(= [\$ "Hickey" -> [cat true]] 
+   ["Hickey" [cat true] \$ ->])
 </code></pre>
 
 Put the elements of the two vectors in the same order and you'll see the computer will treat them as equal.
@@ -101,11 +102,12 @@ This works but is cumbersome. If we intend to use this same function in more tha
 
 <pre><code class="language-klipse">
 (def less-than-6? 
-  (fn [cool-number] (< cool-number 6)))
+  (fn [cool-number]
+    (< cool-number 6)))
 
-(less-than-6? 17)
+(print (less-than-6? 17))
 
-(less-than-6? -4)
+(print (less-than-6? -4))
 </code></pre>
 
 That’s more like it!
@@ -115,10 +117,12 @@ You may want to do more with your function by allowing another input or two. You
 <pre><code class="language-klipse">
 (def weird-fn 
   (fn [x y z] 
-    (< (- y) y x (* z z)))  
+    (< (- y) y x (* z z)))
+
+(weird-fn 1 5 2)
 </code></pre>
 
-The ordering of names in the vector of inputs is the same ordering you use when calling the function. In the expression (weird-fn 1 5 2), 1 takes the place of x, 5 of y and 2 of z.
+The ordering of names in the vector of inputs is the same ordering you use when calling the function. In the previous example 1 takes the place of x, 5 of y and 2 of z.
 
 Now that we know how to define functions, let’s get back to sorting!
 
@@ -166,9 +170,9 @@ We’ll need this repeating behavior in our program.
 
 Testing ideas like this by giving the computer snippets of code and examining the output is akin to having a conversation with the computer in which you can bounce ideas off it (“Do these pants go with my shoes?”).
 
-It's important to note that functions have access to variables defined around them and anything that has been def'ed. Notice that we can reference coll in the little function we passed to filter. We say coll is "in scope" in the function where it is used as a varaible and any function defined within it. If however, we changed the name of our variable in the inner function from x to coll, we would no longer have access to the coll referenced in the outer function because the inner function's coll will have over-shadowed it. Fortunately, this doesn't come into play in any of the code here and if this is confusing just be sure to use unique names for all variables until you get the hang of it.
+It's important to note that functions have access to variables defined around them and anything that has been def'ed. Notice that we can reference coll in the little function we passed to filterv. We say coll is "in scope" in the function where it is used as a varaible and any function defined within it. If however, we changed the name of our variable in the inner function from x to coll, we would no longer have access to the coll referenced in the outer function because the inner function's coll will have over-shadowed it. Fortunately, this doesn't come into play in any of the code here and if this is confusing just use unique names for all variables until you get the hang of it.
 
-To collect elements which go in the right-side group we need only to select the elements which didn’t make the cut for the left-side group. We can do this in the same way but slip not into the function we pass to filter.
+To collect elements which go in the right-side group we need only to select the elements which didn’t make the cut for the left-side group. We can do this in the same way but slip not into the function we pass to filterv.
 
 <pre><code class="language-klipse">
 ((fn [coll]
@@ -230,7 +234,7 @@ Returning an empty vector in the case that our collection is empty works because
 (sort-numbers [6 5 8 11 3 2 7 9 4 1 10 12])
 </code></pre>
 
-As it turns out, the algorithm we’ve just implemented is known as Quicksort, one of many different sorting algorithms. What did you expect for your first program, a general purpose artificial intelligence? Surely, a sorting function is a necessary component so you’re part-way there!
+As it turns out, the algorithm we’ve just implemented is known as Quicksort, one of many different sorting algorithms. What did you expect for your first program, a general purpose artificial intelligence? Surely, the ability to sort something is a necessary component so you’re part-way there!
 
 The language we’ve been using is known as ClojureScript and it’s the nicest language I know because of how little it gets in your way. It has far fewer syntax and semantics than most all other programming languages. This raw simplicity makes it more powerful than other languages, not less.
 
