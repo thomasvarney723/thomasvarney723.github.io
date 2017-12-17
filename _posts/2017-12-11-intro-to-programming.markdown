@@ -7,7 +7,7 @@ categories: jekyll update
 
 {% include klipse.html %}
 
-In this short tutorial, we’ll cover the minimal knowledge necessary to begin writing programs. Programming is actually a lot like math.
+In this short tutorial, we’ll cover the minimal knowledge necessary to begin writing programs in the nicest language I know. Programming is actually a lot like math.
 
 Wait! Don’t leave just yet! Fortunately, programming is nothing like the math classes you’ve likely been subjected to in school.
 
