@@ -25,7 +25,7 @@ Treating the numbers as a collection allows us to easily express a procedure to 
 
 While the steps above make for a perfectly reasonable program, English might as well be Greek to your servile pal the computer. We’ll need to write our program in terms even it can understand. This is where a programming language comes in.
 
-The language we’ll be using is a simple one comprised of only three things: functions, data and application. We’ve already mentioned numbers and collections, they fall into the category of data. Data is static and there is little more to it than what you see. Functions, little programs in their own right, are what make a program do anything at all. Application is how we combine functions and data to build new forms. If functions were verbs and data nouns, application would be how we form sentences.
+The language we’ll be using is a simple one comprised of only three things: functions, data and application. We’ve already mentioned numbers and collections, they fall into the category of data. Data is static and there is little more to it than what you see. Functions, little programs in their own right, are what make a program do anything at all. Application is how we combine functions and data to build new forms. If you think of functions as verbs and data nouns, application is how we form sentences.
 
 Application is expressed with a grouping of parenthesis in which the first element is always a function and any subsequent elements are inputs to the function. Often when we apply a function to data we say that we call the function on that data and it returns a result. Let’s multiply some numbers.
 
@@ -84,14 +84,14 @@ Built-in functions and data are all well and good but what’s the point of writ
 
 <br>
 
-Let’s say you want the ability to test whether a number is less than 6. Testing 17 could be written like (< 17 6). To make this more general so we can apply it to any number, we first insert a variable name where we would like the input to our function to be substituted. You can choose any name you like for the variable. Then wrap the list in the fn function and place your variable name in a vector as the first input to fn. 
+Let’s say you want the ability to test whether a number is less than 6. Testing 17 can be written like (< 17 6). To make this more general so we can apply it to any number, we first insert a variable name where we want the input to our function to be substituted. You can choose any name you like for the variable. Then wrap the list in the fn function and place your variable name in a vector as the first input to fn. 
 
 <pre><code class="language-klipse">
 (fn [a-number] 
   (< a-number 6))
 </code></pre>
 
-In this language indentation has no meaning to the computer but it can be used to make grouping more obvious to humans. It's the delimiters that determine the structure of code; parens and square brackets must be balanced for code to be valid.  We can now use our new function just as we would a built-in like +.
+In this language indentation has no meaning to the computer but it can be used to make grouping more obvious to humans. It's the delimiters that determine the structure of code; parens and square brackets must be balanced for code to be valid.  We can now use our new function just as we can a built-in like +.
 
 <pre><code class="language-klipse">
 ((fn [a-number] (< a-number 6))
@@ -140,7 +140,7 @@ Those to be placed on either side can be selected with rest.
 (rest [6 5 8 11 3 2 7 9 4 1 10 12])
 </code></pre>
 
-Splitting the rest of the elements in our collection into the lesser and greater groups is probably the trickiest part of this whole program. We could go to the trouble of writing a bespoke function that does this for us but I think you’ll find that filterv does just what we’re looking for.
+Splitting the rest of the elements in our collection into the lesser and greater groups is probably the trickiest part of this whole program. We can go to the trouble of writing a bespoke function that does this for us but I think you’ll find that filterv does just what we’re looking for.
 
 <pre><code class="language-klipse">
 (def lesser-numbers
@@ -170,7 +170,7 @@ We’ll need this repeating behavior in our program.
 
 Testing ideas like this by giving the computer snippets of code and examining the output is akin to having a conversation with the computer in which you can bounce ideas off it (“Do these pants go with my shoes?”).
 
-It's important to note that functions have access to variables defined around them and anything that has been def'ed. Notice that we can reference coll in the little function we passed to filterv. We say coll is "in scope" in the function where it is used as a varaible and any function defined within it. If however, we changed the name of our variable in the inner function from x to coll, we would no longer have access to the coll referenced in the outer function because the inner function's coll will have over-shadowed it. Fortunately, this doesn't come into play in any of the code here and if this is confusing just use unique names for all variables until you get the hang of it.
+It's important to note that functions have access to variables defined around them and anything that has been def'ed. Notice that we can reference coll in the little function we passed to filterv. We say coll is "in scope" in the function where it is used as a varaible and any function defined within it. If however, we changed the name of our variable in the inner function from x to coll, we can no longer access the coll referenced in the outer function because the inner function's coll will have over-shadowed it. Fortunately, this doesn't come into play in any of the code here and if this is confusing just use unique names for all variables until you get the hang of it.
 
 To collect elements which go in the right-side group we need only to select the elements which didn’t make the cut for the left-side group. We can do this in the same way but slip not into the function we pass to filterv.
 
