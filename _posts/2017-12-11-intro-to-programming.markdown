@@ -26,7 +26,7 @@ Treating the numbers as a collection allows us to easily express a procedure to 
 While the steps above make for a perfectly reasonable program, English might as well be Greek to your servile pal the computer. We’ll need to write our program in terms even it can understand. This is where a programming language comes in.
 The language we’ll be using is a simple one comprised of only three things: functions, data and application. We’ve already mentioned numbers and collections, they fall into the category of data. Data is static and there is little more to it than what you see. Functions, little programs in their own right, are the doers that make a program worth writing at all. In our english program ‘first’, ‘rest’, ‘left’, ‘right’ and ‘concatenate’ acted as functions.
 
-Application is how we combine functions and data to build new forms. If functions were verbs and data nouns, application would be how we form sentences. Application is expressed with a grouping of parenthesis in which the first element is always a function and any subsequent elements are inputs to the function. Often when we apply a function to data we say that we call that function and it returns a result. Let’s multiply some numbers.
+Application is how we combine functions and data to build new forms. If functions were verbs and data nouns, application would be how we form sentences. Application is expressed with a grouping of parenthesis in which the first element is always a function and any subsequent elements are inputs to the function. Often when we apply a function to data we say that we call the function on that data and it returns a result. Let’s multiply some numbers.
 
 <pre><code class="language-klipse">
 (* 3 -4.9 5/7)
@@ -79,7 +79,7 @@ Vectors have functions appropriate for their type just as numbers do.
 
 Sometimes when the output is a vector, it will be shown with parens instead of square brackets as in the examples containing rest and butlast. Don’t worry about this for now.
 
-Built-in functions, scalar data and collections of data are all well and good but what’s the point of writing an expression that returns the same result every time? We may as well give the computer a break and write the result instead of the expression. There isn’t a point; to do any useful work we need to build our own functions that can return a different output depending on the input.
+Built-in functions and data are all well and good but what’s the point of writing an expression that returns the same result every time? We may as well give the computer a break and write the result instead of the expression. There isn’t a point; to do any useful work we need to build our own functions that can return a different output depending on the input.
 
 <br>
 
@@ -166,7 +166,7 @@ We’ll need this repeating behavior in our program.
 
 Testing ideas like this by giving the computer snippets of code and examining the output is akin to having a conversation with the computer in which you can bounce ideas off it (“Do these pants go with my shoes?”).
 
-It's important to note that functions have access to variables defined around them and anything that has been def'ed. Notice that we can reference coll in the little function we passed to filter. We say coll is "in scope" in the function where it is used as a varaible and any function defined within it. If however, we changed the name of our variable in the inner function from x to coll, we would no longer have access to the coll referenced in the outer function because the inner function's coll will have over-shadowed it. Fortunatly, this doesn't come into play in the code here and if this is confusing just be sure to use unique names for all variables until you get the hang of it.
+It's important to note that functions have access to variables defined around them and anything that has been def'ed. Notice that we can reference coll in the little function we passed to filter. We say coll is "in scope" in the function where it is used as a varaible and any function defined within it. If however, we changed the name of our variable in the inner function from x to coll, we would no longer have access to the coll referenced in the outer function because the inner function's coll will have over-shadowed it. Fortunately, this doesn't come into play in any of the code here and if this is confusing just be sure to use unique names for all variables until you get the hang of it.
 
 To collect elements which go in the right-side group we need only to select the elements which didn’t make the cut for the left-side group. We can do this in the same way but slip not into the function we pass to filter.
 
