@@ -11,7 +11,7 @@ In this short tutorial, we’ll cover the minimal knowledge necessary to begin w
 
 Wait! Don’t leave just yet! Fortunately, programming is nothing like the math classes you’ve likely been subjected to in school.
 
-Programming differs from math in two important ways. Firstly, when writing programs you’re always accompanied by a partner. As with any good group-work the division of labor in this relationship is rather lopsided. Your partner in this case is, of course, the computer. While being far more rational than you (someone had to say it), the computer can’t think for itself and will do virtually anything you ask it to. Its toil frees you from solving for x for the zillionth time in a cramped chair and desk. Delegating the task of evaluation to the computer turns an otherwise dry task into a creative one.
+Programming differs from math in two important ways. Firstly, when writing programs you’re always accompanied by a partner. As with any good group-work the division of labor in this relationship is rather lopsided. Your partner in this case is, of course, the computer. While being far more rational than you (someone had to say it), the computer can’t think for itself and will do virtually anything you ask it to. Its toil frees you from solving for x for the zillionth time in a cramped chair and desk. Delegating the task of evaluation to the computer turns an otherwise monotonous task into a creative one.
 
 Secondly, and most importantly, programming languages have collections. Most math curriculum through high school deals almost exclusively with scalar types. That is every value, or placeholder for a value, in an expression is indivisible. 4 is a scalar value as is 273.24. Numbers, in this case, and their accompanied operations like addition are frequently insufficient for all but the most boring of programs. Collections in a programming language allow us to do more by wrapping many values together into one value and manipulating it irrespective of what’s inside.
 
@@ -165,6 +165,8 @@ filterv takes a function and a collection and returns only the elements of that 
 We’ll need this repeating behavior in our program.
 
 Testing ideas like this by giving the computer snippets of code and examining the output is akin to having a conversation with the computer in which you can bounce ideas off it (“Do these pants go with my shoes?”).
+
+It's important to note that functions have access to variables defined around them and anything that has been def'ed. Notice that we can reference coll in the little function we passed to filter. We say coll is "in scope" in the function where it is used as a varaible and any function defined within it. If however, we changed the name of our variable in the inner function from x to coll, we would no longer have access to the coll referenced in the outer function because the inner function's coll will have over-shadowed it. Fortunatly, this doesn't come into play in the code here and if this is confusing just be sure to use unique names for all variables until you get the hang of it.
 
 To collect elements which go in the right-side group we need only to select the elements which didn’t make the cut for the left-side group. We can do this in the same way but slip not into the function we pass to filter.
 
