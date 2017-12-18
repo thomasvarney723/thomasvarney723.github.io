@@ -19,7 +19,7 @@ You may already know that a program is just a series of smaller procedures speci
 
 1. Take the first number in the unsorted collection and place the remaining numbers into one of two groups on either side. Lesser numbers go in the group to the left, greater numbers to the right. 
 2. Repeat this procedure on both of the new groups until they are empty. 
-3. Finally, from left to right, concatenate (string together into a collection) all the numbers back into one group in their new order.
+3. Finally, from left to right, concatenate (string back together) all the numbers into one group in their new order.
 
 Treating the numbers as a collection allows us to easily express a procedure to sort it. Notice that terms like ‘first’, ‘rest’, ‘left’, ‘right’ and ‘concatenate’ are operations appropriate for collections just as arithmetic is for numbers.
 
