@@ -21,7 +21,7 @@ You may already know that a program is just a series of smaller procedures speci
 2. Repeat this procedure on both of the new groups until they are empty. 
 3. Finally, from left to right, concatenate (string together into a collection) all the numbers back into one group in their new order.
 
-![Quicksort]({{ "/assets/Quicksort.gif"}})
+![Quicksort]({{ "/assets/quicksort.gif"}})
 
 Treating the numbers as a collection allows us to easily express a procedure to sort it. Notice that terms like ‘first’,rest’, ‘left’, ‘right’ and ‘concatenate’ are operations appropriate for collections just as arithmetic is for numbers.
 
