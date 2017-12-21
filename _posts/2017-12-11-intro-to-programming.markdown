@@ -9,16 +9,16 @@ categories: jekyll update
 
 In this short tutorial, we’ll cover the minimal knowledge necessary to begin writing programs. Programming is actually a lot like math.
 
-Wait! Don’t leave just yet! Fortunately, programming is nothing like the math classes you’ve likely been subjected to in school.
+Wait! Don’t leave just yet! Fortunately, it's nothing like the math classes you’ve likely been subjected to in school.
 
-Programming differs from math in two important ways. Firstly, when writing programs you’re always accompanied by a partner. As with any good group-work the division of labor in this relationship is rather lopsided. Your partner in this case is, of course, the computer. While being far more rational than you (someone had to say it), the computer can’t think for itself and will do virtually anything you ask it to. Its toil frees you from solving for x for the zillionth time in a cramped chair and desk. Delegating the task of evaluation to the computer turns an otherwise dry task into a creative one.
+Programming differs from math in two important ways. Firstly, when writing programs you’re always accompanied by a partner. As with any good group-work the division of labor in this relationship is rather lopsided. Your partner in this case is, of course, the computer. While being far more rational than you (someone had to say it), the computer can’t think for itself and will do virtually anything you ask it to. Its toil frees you from solving for x for the zillionth time in a cramped chair and desk. Delegating this task of evaluation to the computer turns an otherwise monotonous task into a creative one.
 
-Secondly, and most importantly, programming languages have collections. Most math curriculum through high school deals almost exclusively with scalar types. That is every value, or placeholder for a value, in an expression is indivisible. 4 is a scalar value as is 273. Numbers, in this case, and their accompanied operations like addition are frequently insufficient for all but the most boring of programs. Collections in a programming language allow us to do more by wrapping many values together into one value and manipulating it irrespective of what’s inside.
+Secondly, and most importantly, programming languages have collections. Most math curriculum through high school deals almost exclusively with scalar types. That is every value, or placeholder for a value, in an expression is indivisible. 4 is a scalar value as is 273.45. Numbers, in this case, and their accompanied operations like addition are frequently insufficient for all but the most boring of programs. Collections in a programming language allow us to do more by wrapping many values together into one value and manipulating it irrespective of what’s inside.
 
 You may already know that a program is just a series of smaller procedures specified in a particular order. Let’s say you want to write a series of steps to sort a collection of numbers. One possible solution might go something like this: 
 
-1. Take the first number in the unsorted collection and place the rest of the numbers into one of two groups on either side. Lesser numbers go in the group to the left, greater numbers to the right. 
-2. Repeat this procedure on both of the new groups until they are empty. 
+1. Take the first number in the unsorted collection and place the rest of the numbers into one of two collections on either side. Lesser numbers go in the group to the left, greater numbers to the right. 
+2. Repeat this procedure on both of the new collections until they are empty. 
 3. Finally, from left to right, concatenate (string together into a collection) all the numbers back into one group in their new order.
 
 ![Quicksort]({{ "/assets/quicksort.gif" | absolute_url }})
@@ -26,7 +26,7 @@ You may already know that a program is just a series of smaller procedures speci
 Treating the numbers as a collection allows us to easily express a procedure to sort it. Notice that terms like ‘first’,rest’, ‘left’, ‘right’ and ‘concatenate’ are operations appropriate for collections just as arithmetic is for numbers.
 
 While the steps above make for a perfectly reasonable program, English might as well be Greek to your servile pal the computer. We’ll need to write our program in terms even it can understand. This is where a programming language comes in.
-The language we’ll be using is a simple one comprised of only three things: functions, data and application. We’ve already mentioned numbers and collections, they fall into the category of data. Data is static and there is little more to it than what you see. Functions, little programs in their own right, are the doers that make a program worth writing at all. In our english program ‘first’, ‘left’, ‘right’ and ‘concatenate’ acted as functions.
+The language we’ll be using is a simple one comprised of only three things: functions, data and application. We’ve already mentioned numbers and collections, they fall into the category of data. Data is static and there is little more to it than what you see. Functions, little programs in their own right, are the doers that make a program worth writing at all.
 
 Application is how we combine functions and data to build new forms. If functions were verbs and data nouns, application would be how we form sentences. Application is expressed with a grouping of parenthesis in which the first element is always a function and any subsequent elements are inputs to the function. Let’s multiply some numbers.
 
@@ -42,16 +42,16 @@ Chaining computations can be achieved by nesting expressions and this can be don
 (/ 2 (- 3 5 (+ 1 2) -10))
 </code></pre>
 
-This is equivalent to ‘(3 - 5  - (1 + 2) - -10) / 2’.
+This is equivalent to ‘2 / (3 - 5  - (1 + 2) - -10)’.
 
-Now what about those collections I promised you? Vectors, one type of collection, are notated with square brackets instead of parens. Vectors too can be nested to any depth. [\$ "Hickey" > [99999999 true]] is a vector of four items. Vectors can contain a mix of different types; in this case: a character, string, function and another vector containing an integer and a boolean. Also note that ordering matters.
+Now what about those collections I promised you? Vectors, one type of collection, are notated with square brackets instead of parens. Vectors too can be nested to any depth. [\$ "Hickey" -> [cat true]] is a vector of four items. Vectors can contain a mix of different types; in this case: a character, string, macro and another vector containing a function and a boolean. Also note that ordering matters.
 
 <pre><code class="language-klipse">
-(= [\$ "Hickey" > [99999999 true]] 
-   ["Hickey" [99999999 true] \$ >])
+(= [\$ "Hickey" -> [cat true]] 
+   ["Hickey" [cat true] \$ ->])
 </code></pre>
 
-Put the elements of the two vectors in the same order and you'll see the computer will see them as equal.
+Put the elements of the two vectors in the same order and you'll see the computer will treat them as equal.
 
 Vectors have functions appropriate for their type just as numbers do.
 
@@ -92,7 +92,7 @@ Let’s say you want the ability to test whether a number is less than 6. Testin
   (< a-number 6))
 </code></pre>
 
-Delimiters such as parens and square brackets must be balanced for code to be valid. Indentation has no meaning in this language but it can be used to make grouping more obvious. We can now use our new function just as we would a built-in like +.
+Delimiters such as parens and square brackets must be balanced for code to be valid. Indentation has no meaning in this language but it can be used to make the structure of a program more obvious. We can now use our new function just as we would a built-in like +.
 
 <pre><code class="language-klipse">
 ((fn [a-number] (< a-number 6))
@@ -103,7 +103,8 @@ This works but is cumbersome. If we intend to use this same function in more tha
 
 <pre><code class="language-klipse">
 (def less-than-6? 
-  (fn [cool-number] (< cool-number 6)))
+  (fn [cool-number]
+    (< cool-number 6)))
 </code></pre>
 
 <pre><code class="language-klipse">
@@ -116,59 +117,28 @@ You may want to do more with your function by allowing another input or two. You
 
 <pre><code class="language-klipse">
 (def less-than? 
-  (fn [tester one-testee two-testee] 
-    (< tester one-testee two-testee))))
+  (fn [w x y z] 
+    (< (- y) y x (* z z)))
 </code></pre>
 
 <pre><code class="language-klipse">
 (less-than? 17 6 11)
 </code></pre>
 
-You may have noticed that our less-than? function doesn’t do anything the built in < doesn’t. Our function would be simpler if we merely applied the function < to our data. Although we typically do this with parens Clojure gives us an apply function as well. The following is similar to our last definition of less-than?’
-
-<pre><code class="language-klipse">
-(def less-than? 
-  (fn [coll] 
-    (apply < coll))))
-</code></pre>
-
-It may be helpful to think of every expression as an application of apply, a function and a collection of input. In fact, this is actually what’s going on under the hood when the computer evaluates your code.
-
-(apply a-function [input0 input1 input2 input3 ...])
-
-You’ll notice that if we now call less-than? with 17 6 and 11 as we did previously we’ll receive some sort of error from the computer about using the wrong number of arguments.  Now we must wrap our numbers in a vector when calling less-than? on it. This has two consequences. On the plus side we can now test any amount of numbers by including them in our vector. However, imagine if less-than? were a component in a larger program. By expecting a collection of potentially many numbers instead of exactly three numbers we’ve introduced a bug anywhere less-than? is invoked. Fortunately we can have our cake and eat it too.  
-
-<pre><code class="language-klipse">
-(def less-than? 
-  (fn [& numbers] 
-    (apply < numbers))))
-</code></pre>
-
-The & in the function definition means that it can accept any number of arguments and they will be put into a collection that can be referred to as numbers.
-
-<pre><code class="language-klipse">
-(less-than? 17 6 11)
-</code></pre>
-
-All that for a function that is no better than <... Now that we know how to define functions, let’s get back to sorting!
+Now that we know how to define functions, let’s get back to sorting!
 
 As test data for our sorting function, let’s use [6 5 8 11 3 2 7 9 4 1 10 12].
-For convenience sake while developing we can bind this to a name.
-
-<pre><code class="language-klipse">
-(def numbers [6 5 8 11 3 2 7 9 4 1 10 12])
-</code></pre>
 
 Our english program says to take the first item in this collection. Easy enough.
 
 <pre><code class="language-klipse">
-(first numbers)
+(first [6 5 8 11 3 2 7 9 4 1 10 12])
 </code></pre>
 
 Those to be placed on either side can be selected with rest.
 
 <pre><code class="language-klipse">
-(rest numbers)
+(rest [6 5 8 11 3 2 7 9 4 1 10 12])
 </code></pre>
 
 Splitting the rest of the elements in our collection into the lesser and greater groups is probably the trickiest part of this whole program. We could go to the trouble of writing a bespoke function that does this for us but I think you’ll find that filterv does just what we’re looking for.
@@ -177,8 +147,8 @@ Splitting the rest of the elements in our collection into the lesser and greater
 (def lesser-numbers
   (fn [coll]
     (filterv (fn [another]
-    	      (< another (first coll)))
-            (rest coll)))
+    	       (< another (first coll)))
+             (rest coll)))
 
 (lesser-numbers [6 5 8 11 3 2 7 9 4 1 10 12])
 </code></pre>
@@ -210,7 +180,7 @@ The repeating aspect of our sorting function will be accomplished by simply appl
 Because concatenation is done only once at the end of our sorting function, we’ll wrap concat around the body of our function so that all the recursions take place before the concatenation. Also, the first element that we used to compare to the rest of our elements will need to be concatenated between the left and right groups. It must be placed in a vector because concat only operates on collections. Try concat with a naked scalar type and you’ll see it throws an error.
 
 <pre><code class="language-klipse">
-(concat [1 2 3] 4 [5 6 7])
+(concat [] [1 2 3] 4 [5 6 7] [])
 </code></pre>
 
 <pre><code class="language-klipse">
@@ -230,7 +200,7 @@ Because concatenation is done only once at the end of our sorting function, we�
 #_(sort-numbers [6 5 8 11 3 2 7 9 4 1 10 12])
 </code></pre>
 
-We’re almost there! If you now apply sort-numbers to our test data by uncommenting the last line, you’ll receive some sort of stack overflow error. This is because there is nothing that stops the recursion from terminating. At the two places where we call sort-numbers, our function goes around and around. It’s for this reason (take-while not-empty ... was needed in the example showing the left evaluation branch. We need evaluation to stop when some criteria is met. According to our english program the terminating condition is when the collection no longer has anything in it. if is a supremely useful function that will enable us to insert this check. if takes three inputs: a test, an output if the test evaluates to true and an output if the test evaluates to false. Our test for an empty collection can be written simply as (= [] coll) and the false branch of our if function will contain the logic we've already covered.
+We’re almost there! If you now apply sort-numbers to our test data by uncommenting the last line, you’ll receive some sort of stack overflow error. This is because there is nothing that stops the recursion from terminating. At the two places where we call sort-numbers, our function goes around and around. It’s for this reason (take-while not-empty ... was needed in the example showing the left evaluation branch. We need the recursion to stop when some criteria is met. According to our english program the terminating condition is when the collection no longer has anything in it. if is a supremely useful function that will enable us to insert this check. if takes three inputs: a test, an output if the test evaluates to true and an output if the test evaluates to false. Our test for an empty collection can be written simply as (= [] coll) and the false branch of our if function will contain the logic we've already covered.
 
 <pre><code class="language-klipse">
 (def sort-numbers
@@ -257,13 +227,9 @@ Returning an empty vector in the case that our collection is empty works because
 
 As it turns out, the algorithm we’ve just implemented is known as Quicksort, one of many different sorting algorithms. What did you expect for your first program, a general purpose artificial intelligence? Surely, a sorting function is a necessary component so you’re part-way there!
 
-The language we’ve been using is known as ClojureScript and it’s the nicest language I know because of its simplicity. It has far fewer syntax and semantics than most all of the numerous other programming languages in existence. This raw simplicity puts a minimal amount of distance between you and the logic you intend to express.
+The language we’ve been using is known as ClojureScript and it’s the nicest language I know because of its simplicity. It has far fewer syntax and semantics than most all other programming languages. This raw simplicity makes it more powerful than other languages, not less.
 
-ClojureScript is a variant of Clojure and designed to run in a web browser. The code we’ve explored here works in both languages. If you’re interested in playing more with Clojure. a cheatsheet of built-in functions can be found at https://clojure.org/api/cheatsheet. Head over to repl.it for a Clojure environment with a scratch area. 4Clojure and clojurekoans offer little puzzles to cut your teeth on.
-
-Although a programming language is necessary for developing a program which runs on a computer, it’s important to realize that any language will do and that thinking precisely and procedurally is the key. Clojure is the nicest language I know because of how little it gets in your way. Both its syntax and semantics are far smaller and simpler than most every other programming language. This puts a minimal amount of distance between you and the logic you intend to express.
-
-At this point you know nearly everything required to write a program of any magnitude in Clojure. Although Clojure isn’t always a good fit for every application, any software you can think of, be it an operating system, webpage, pacemaker or sorting program, is merely a group of smaller functions composed to synthesize a new function. In fact, most of Clojure’s built-in functions are themselves comprised of yet more primitive functions. Their difference is not a fundamental one but a matter of degree.
+ClojureScript is a variant of Clojure and designed to run in a web browser. The code we’ve explored here works in both languages. If you’re interested in playing with it more, repl.it has a browser-based Clojure environment with a scratch area. clojurescriptkoans.com and 4Clojure.com offer little puzzles to cut your teeth on. A cheatsheet of built-in functions can be found at https://clojure.org/api/cheatsheet.
 
 Some of the information in this post may only be approximately true but further refinements will have to be left for another time.
 
