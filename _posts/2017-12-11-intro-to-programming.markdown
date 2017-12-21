@@ -15,7 +15,7 @@ Programming differs from math in two important ways. Firstly, when writing progr
 
 Secondly, and most importantly, programming languages have collections. Most math curriculum through high school deals almost exclusively with scalar types. That is every value, or placeholder for a value, in an expression is indivisible. 4 is a scalar value as is 273.45. Numbers, in this case, and their accompanied operations like addition are frequently insufficient for all but the most boring of programs. Collections in a programming language allow us to do more by wrapping many values together into one value and manipulating it irrespective of what’s inside.
 
-You may already know that a program is just a series of smaller procedures specified in a particular order. Let’s say you want to write a series of steps to sort a collection of numbers. One possible solution might go something like this: 
+You may already know that a program is just a list of smaller procedures specified in a particular order. Let’s say you want to write a series of steps to sort a collection of numbers. One possible solution might go something like this: 
 
 1. Take the first number in the unsorted collection and place the rest of the numbers into one of two collections on either side. Lesser numbers go in the group to the left, greater numbers to the right. 
 2. Repeat this procedure on both of the new collections until they are empty. 
@@ -83,11 +83,11 @@ Vectors have functions appropriate for their type just as numbers do.
 
 Sometimes when the output is a vector, it will be shown with parens instead of square brackets as in the examples containing rest and butlast. Don’t worry about this for now.
 
-Built-in functions, scalar data and collections of data are all well and good but what’s the point of writing an expression that returns the same result every time? We could just as easily write the output instead of the expression. There isn’t a point. To do any useful work, we need to build our own functions that can return a different output depending on the input.
+Functions, data and application are all well and good but what’s the point of writing an expression that returns the same result every time? We can just as easily write the output instead of the expression. There isn’t a point. To do any useful work, we need to build our own functions that can return a different output depending on the input.
 
 <br>
 
-Let’s say you want the ability to test whether a number is less than 6. Testing 17 could be written like (< 17 6). To make this more general so we can apply it to any number, we first insert a variable name where we want the input to our function to be substituted. You can choose any name you like for the variable. Then wrap the list in the fn function and place your variable name in a vector as the first input to fn. 
+Let’s say you want the ability to test whether a number is less than 6. Testing 17 can be written like (< 17 6). To make this more general so we can apply it to any number, we first insert a variable name where we want the input to our function to be substituted. You can choose any name you like for the variable. Then wrap the list in the fn function and place your variable name in a vector as the first input to fn. 
 
 <pre><code class="language-klipse">
 (fn [a-number] 
@@ -141,7 +141,7 @@ Those to be placed on either side can be selected with rest.
 (rest [6 5 8 11 3 2 7 9 4 1 10 12])
 </code></pre>
 
-Splitting the rest of the elements in our collection into the lesser and greater groups is probably the trickiest part of this whole program. We could go to the trouble of writing a bespoke function that does this for us but I think you’ll find that filterv does just what we’re looking for.
+Splitting the rest of the elements in our collection into the lesser and greater groups is probably the trickiest part of this whole program. We can go to the trouble of writing a bespoke function that does this for us but I think you’ll find that filterv does just what we’re looking for.
 
 <pre><code class="language-klipse">
 (def lesser-numbers
