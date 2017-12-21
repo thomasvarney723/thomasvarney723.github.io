@@ -5,7 +5,7 @@ date:   2017-12-11 22:44:00 -0600
 categories: jekyll update
 ---
 
-{% include klipse.html %}
+{% include "klipse.html" %}
 
 In this short tutorial, we’ll cover the minimal knowledge necessary to begin writing programs. Programming is actually a lot like math.
 
