@@ -187,7 +187,7 @@ To collect elements which go in the right-side group we need only to select the 
   numbers)
 </code></pre>
 
-Notice how the function passed to <code>filterv</code> references <code>coll</code>, the variable in the surrounding function. Functions can reference anything surrounding them. A variable defined locally, a variable defined in a surrounding function, something <code>def</code>-ed in the program, a built-in function - these are all said to be "in scope". If a function uses the same name for a variable as one that is already in scope it won't affect either one. However, the variable name in the inner function will over-shadow the outer meaning it can't be referenced from within the inner function. Scoping can be a strange concept until you've worked with it. 
+Notice how the function passed to <code>filterv</code> references <code>coll</code>, the variable in the surrounding function. Functions can reference anything surrounding them. A variable defined locally, a variable defined in a surrounding function, something <code>def</code>-ed in the program, a built-in function - these are all said to be "in scope". If a function uses the same name for a variable as one that is already in scope it won't affect either one. However, the variable name in the inner function will over-shadow the outer meaning the outer variable can't be referenced from within the inner function. Scoping can be a strange concept until you've worked with it. 
 
 The repeating aspect of our sorting function will be accomplished by simply calling our sorting function again on each of our left and right groups. Defining a function in terms of itself? What a concept!
 
