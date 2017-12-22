@@ -11,7 +11,7 @@ In this short tutorial, we’ll cover the minimal knowledge necessary to begin w
 
 Wait! Don’t leave just yet! Fortunately, it's nothing like the math classes you’ve likely been subjected to in school.
 
-Programming differs from math in two important ways. Firstly, when writing programs you’re always accompanied by a partner. As with any good group-work the division of labor in this relationship is rather lopsided. Your partner in this case is, of course, the computer. While being far more rational than you (someone had to say it), the computer can’t think for itself and will do virtually anything you ask it to. Its toil frees you from solving for x for the zillionth time in a cramped chair and desk. Delegating this task of evaluation to the computer turns an otherwise monotonous task into a creative one.
+Programming differs from math in two important ways. Firstly, when writing programs you’re always accompanied by a partner. As with any good group-work the division of labor in this relationship is rather lopsided. Your partner in this case is, of course, the computer. While being far more rational than you (someone had to say it), the computer is too stupid to think for itself and will do virtually anything you ask it to. Its toil frees you from solving for x for the zillionth time in a cramped chair and desk. Delegating this task of evaluation to the computer turns an otherwise monotonous task into a creative one.
 
 Secondly, and most importantly, programming languages have collections. Most math curricula in schools deal exclusively with scalar types. That is every value, or placeholder for a value, in an expression is indivisible. 4 is a scalar value as is 273.45. Numbers, in this case, and their accompanied operations like addition  are frequently insufficient for all but the most boring of programs. Collections enable us to group many values together and manipulate them as one value. 
 
@@ -23,9 +23,12 @@ You may already know that a program is just a group of smaller programs specifie
 
 ![Quicksort]({{ "/assets/quicksort.gif" | absolute_url }})
 
-Treating the numbers as a collection allows us to easily express a procedure to sort it. Notice that terms like "first", "rest", "left", "right" and "concatenate" are operations appropriate for collections just as arithmetic is for numbers.
+Treating the numbers as a collection allows us to easily express a procedure to sort it. Notice that terms like "first", "rest", "left", "right", "empty" and "concatenate" are operations appropriate for collections just as arithmetic is for numbers.
 
-While the steps above make for a perfectly reasonable program, English might as well be Greek to your servile pal the computer. We’ll need to write our program in terms even it can understand. This is where a programming language comes in.
+While the steps above make for a perfectly reasonable program, English might as well be Greek to your dim-witted pal the computer. We’ll need to write our program in terms even it can understand. This is where a programming language comes in.
+
+<br>
+
 The language we’ll be using is a simple one comprised of only three things: functions, data and application. We’ve already mentioned numbers and collections, they fall into the category of data. Data is static and there is no more to it than what you see. Functions are the opposite, they're the doers that make a program worth writing at all.
 
 Application is how we combine functions and data to build new forms. If you think of functions as verbs and data as nouns, application is how we form sentences. Application is expressed with a grouping of parenthesis in which the first element is always a function and any subsequent elements are inputs to the function. At least one whitespace character must seperate each element. Let’s multiply some numbers.
@@ -34,9 +37,11 @@ Application is how we combine functions and data to build new forms. If you thin
 (* 3 -4.9 5/7)
 </code></pre>
 
-In the more familiar mathematical syntax this is equivalent to ‘3 x -4.9 x 5/7’.  Often we say that we call a function on some inputs or we pass some inputs to a function.
+In the more familiar mathematical syntax this is equivalent to "3 x -4.9 x 5/7".
 
-All the code in this tutorial can be edited and the computer will reevaluate it. The output is displayed just below each code snippet. Try swapping one of the inputs for "eight". Because english words have no meaning in the context of addition the computer will complain loudly.
+Often we say that we call a function on some inputs or we pass some inputs to a function and are given back a result or return value. Inputs to a function also may be called arguments or parameters to that function. Whatever the vernacular, it's always the case that we apply a function to zero or more inputs and get back exactly one output.
+
+All the code in this tutorial can be edited and the computer will reevaluate it. The output is displayed just below each code snippet. Try swapping one of the inputs for <code>"eight"</code>. Because english words have no meaning in the context of addition the computer will complain loudly.
 
 Chaining computations can be achieved by nesting expressions and this can be done to any depth. The output of each subexpression becomes the input to another.
 
@@ -44,7 +49,7 @@ Chaining computations can be achieved by nesting expressions and this can be don
 (/ 2 (- 3 5 (+ 1 2) -10))
 </code></pre>
 
-Note that delimiters such as parens must always be balanced for code to be valid. The previoius expression is equivalent to ‘2 / (3 - 5  - (1 + 2) - -10)’. 
+Note that delimiters such as parens must always be balanced for code to be valid. The previous expression is equivalent to ‘2 / (3 - 5  - (1 + 2) - -10)’. 
 
 Now what about those collections? Vectors, one type of collection, are notated with square brackets instead of parens. Vectors too can be nested to any depth. <code>[\$ "Hickey" -> [cat true]]</code> is a vector of four items. Vectors can contain a mix of different types; in this case: a character, string, macro and another vector containing a function and a boolean. Also note that ordering matters.
 
@@ -67,7 +72,7 @@ Vectors have functions relevant for the type of data they are.
 
 <pre><code class="language-klipse">
 (nth [3 2 1] 1)  ;; Collections' indicies begin at zero.
-                 ;; Text after a semicolon is one type of comment.
+                 ;; Text after a semicolon is a comment.
 		 ;; These aren't evaluated.
 </code></pre>
 
@@ -79,25 +84,26 @@ Vectors have functions relevant for the type of data they are.
 (concat [5 4] [] [3 2 1] [0])
 </code></pre>
 
-Many functions return a vector wrapped in parens instead of square brackets such as in the examples containing <code>rest</code> and <code>concat</code>. Try not to  worry about this for now.
+Many functions return a vector wrapped in parens instead of square brackets such as in the examples containing <code>rest</code> and <code>concat</code>. Don't worry about this apparent inconsistency for now.
 
-Functions, data and application are all well and good but what’s the point of writing an expression that returns the same result every time? We can just as easily write the output instead of the expression. There isn’t a point. To do any useful work, we need to build new functions that can return a different output depending on the input.
+Functions, data and application are all well and good but what’s the point of writing an expression that returns the same result every time? We can just as easily write the output instead of the expression. There isn’t a point. To do any useful work, we need to build new functions.
 
 <br>
 
-Let’s say you want the ability to test whether a number is less than 6. Testing 17 can be written like <code>(< 17 6)</code>. To make this more general so we can apply it to any number, we first insert a variable name where we want the input to our function to be substituted. You can choose any name you like for the variable. Then wrap the list in the <code>fn</code> function and place your variable name in a vector as the first input to <code>fn</code>. 
+Let’s say you want the ability to test whether a number is less than 6. Testing 17 can be written like <code>(< 17 6)</code>. To make this more general so we can apply it to any number, we first insert a variable name where we want the input to our function to be substituted. You can choose any name you like for the variable. Then wrap the list in the <code>fn</code> function and place your variable name in a vector as the first argument to <code>fn</code>. 
 
 <pre><code class="language-klipse">
 (fn [a-number] 
   (< a-number 6))
 </code></pre>
 
-Note the use of a hyphen in place of a space. Because whitespace is used to seperate elements we must use something else in lieu of spaces in a name. All whitespace characters are equivelant in this language so indentation has no meaning, however, it can make the structure of code more obvious.
+Note the use of a hyphen in place of a space in our variable name. Because whitespace is used to seperate elements, we must use something else in lieu of spaces. All whitespace characters are equivelant in this language so indentation has no meaning, however, it can be employed to make the structure of code more obvious.
 
 We can now use our new function just as we can a built-in like <code>+</code>.
 
 <pre><code class="language-klipse">
-((fn [a-number] (< a-number 6))
+((fn [a-number]
+   (< a-number 6))
   17)
 </code></pre>
 
@@ -113,7 +119,7 @@ This works but is cumbersome. If we intend to use this same function in more tha
 
 That’s more like it!
 
-Functions that take only one input may seem limiting. You can add as many variables as you like and refer to them as many times as you like. Simply include each name in the vector of inputs.
+Making functions that take only one input may seem limiting. You can add as many variables as you like and refer to them as many times as you like. Simply include each name in the vector of inputs.
 
 <pre><code class="language-klipse">
 (def weird-fn 
@@ -126,6 +132,8 @@ Functions that take only one input may seem limiting. You can add as many variab
 When defining a function, the order of variable names in the vector of inputs is the same order used when calling it. In the previous expression, <code>-2</code> will be substituted for (the absent) <code>w</code>, <code>3</code> will be substituted for <code>x</code>, <code>2</code> for <code>y</code> and <code>4</code> for <code>z</code>.
 
 Now that we know how to define functions, let’s get back to sorting!
+
+<br>
 
 As test data for our sorting function, let’s use <code>[6 5 8 11 3 2 7 9 4 1 10 12]</code>.
 
@@ -166,8 +174,6 @@ Splitting the rest of the elements in our collection into the lesser and greater
             (iterate lesser-numbers
                      [6 5 8 11 3 2 7 9 4 1 10 12]))
 </code></pre>
- 
-We’ll need this repeating behavior in our program.
 
 Testing ideas like this by giving the computer snippets of code and examining the return value is akin to having a conversation with the computer in which you can bounce ideas off it (“Do these pants go with my shoes?”).
 
@@ -181,11 +187,11 @@ To collect elements which go in the right-side group we need only to select the 
   numbers)
 </code></pre>
 
-Notice how the function passed to <code>filterv</code> references <code>coll</code>, the variable in the surrounding function. In the function passed to <code>filterv</code>, we say that <code>coll</code> is in scope. Functions can reference anything surrounding them. A variable defined in a surrounding function, data <code>def</code>'ed in the program, a built-in function - these can all be referenced in a function. If this is confusing use unique names for all variables until you get the hang of it. 
+Notice how the function passed to <code>filterv</code> references <code>coll</code>, the variable in the surrounding function. Functions can reference anything surrounding them. A variable defined locally, a variable defined in a surrounding function, something <code>def</code>-ed in the program, a built-in function - these are all said to be "in scope". If a function uses the same name for a variable as one that is already in scope it won't affect either one. However, the variable name in the inner function will over-shadow the outer meaning it can't be referenced from within the inner function. Scoping can be a strange concept until you've worked with it. 
 
-The repeating aspect of our sorting function will be accomplished by simply applying our sorting function again to each of our left and right groups. Defining a function in terms of itself? What a concept!
+The repeating aspect of our sorting function will be accomplished by simply calling our sorting function again on each of our left and right groups. Defining a function in terms of itself? What a concept!
 
-Because concatenation is done only once at the end of our sorting function, we’ll wrap <code>concat</code> around the body of our function so that all the recursions take place before the concatenation. Also, the first element that we used to compare to the rest of our elements will need to be concatenated between the left and right groups. It must be placed in a vector because <code>concat</code> works on collections. Try <code>concat</code> with a naked scalar type and you’ll see it throws an error.
+Because concatenation is done only once at the end of our sorting function, we’ll wrap <code>concat</code> around the body of our function so that all the recursions take place before the concatenation. Also, the first element that we use to compare to the rest of our elements will need to be concatenated between the left and right groups. It must be placed in a vector because <code>concat</code> works on collections. Try <code>concat</code> with a naked scalar type and you’ll see it throws an error.
 
 <pre><code class="language-klipse">
 (concat [1 2 3] 4 [5 6 7])
@@ -208,7 +214,7 @@ Because concatenation is done only once at the end of our sorting function, we�
 #_(sort-numbers [6 5 8 11 3 2 7 9 4 1 10 12])
 </code></pre>
 
-We’re almost there! If you now apply <code>sort-numbers</code> to our test data by uncommenting the last expression, you’ll receive some sort of "call stack overflow" error. This is because there is nothing that stops the recursion from terminating. At the two places where we call <code>sort-numbers</code>, our function goes around and around. It’s for this reason <code>(take-while not-empty ...</code> was needed in the example showing the left evaluation branch. We need the recursion to stop when some criteria is met. According to our english program the terminating condition is when the collection no longer has anything in it. <code>if</code> is a supremely useful function that will enable us to insert this check. <code>if</code> takes three inputs: a test, an output if the test evaluates to <code>true</code> and an output if the test evaluates to <code>false</code>. Our test for an empty collection can be written simply as <code>(= [] coll)</code> and the false branch of our <code>if</code> function will contain the logic we've already covered.
+We’re almost there! If you now apply <code>sort-numbers</code> to our test data by uncommenting the last expression, you’ll receive some sort of "call stack overflow" error. This is because there is nothing that stops the recursion from terminating. At the two places where we call <code>sort-numbers</code>, our function goes around and around. It’s for this reason <code>(take-while not-empty </code> was needed in the example showing the left evaluation branch. We need the recursion to stop when some criteria is met. According to our english program the terminating condition is when the collection no longer has anything in it. <code>if</code> is a supremely useful function that will enable us to insert this check. <code>if</code> takes three inputs: a test, an output if the test evaluates to <code>true</code> and an output if the test evaluates to <code>false</code>. Our test for an empty collection can be written simply as <code>(= [] coll)</code> and the false branch of our <code>if</code> function will contain the logic we've already covered.
 
 <pre><code class="language-klipse">
 (def sort-numbers
@@ -225,19 +231,20 @@ We’re almost there! If you now apply <code>sort-numbers</code> to our test dat
             (filterv (fn [x]
                        (not (< x (first coll))))
                      (rest coll)))))))
-</code></pre>
 
-Returning an empty vector in the case that our collection is empty works because <code>concat</code>-ing any collection with an empty collection returns the same collection. Another way to think about this is that we are going to recurse until we get to a collection that we know to be sorted - an empty one.
-
-<pre><code class="language-klipse">
 (sort-numbers [6 5 8 11 3 2 7 9 4 1 10 12])
 </code></pre>
 
+
+Returning an empty vector in the case that our collection is empty works because <code>concat</code>-ing any vector with an empty vector returns the same vector. Another way to think about this is that we are going to recurse until we get to a collection that we know to be sorted - an empty one.
+
 As it turns out, the algorithm we’ve just implemented is known as Quicksort, one of many different sorting algorithms. What did you expect for your first program, a general purpose artificial intelligence? Surely, a sorting function is a necessary component so you’re part-way there!
+
+<br>
 
 The language we’ve been using is known as ClojureScript and it’s the nicest language I know because of its simplicity. It has far fewer syntax and semantics than most all other programming languages. This raw simplicity makes it more powerful than other languages, not less.
 
-ClojureScript is a dialect of Clojure and  designed to run in a web browser. The code we’ve explored here works in both languages. If you’re interested in playing with it more, repl.it has a browser-based Clojure environment with a scratch area. clojurescriptkoans.com and 4Clojure.com offer little puzzles to cut your teeth on. A cheatsheet of built-in functions can be found at https://clojure.org/api/cheatsheet.
+ClojureScript is a dialect of Clojure and designed to run in a web browser. The code we’ve explored here works in both languages. If you’re interested in playing with it more, repl.it has a browser-based Clojure environment with a scratch area. clojurescriptkoans.com and 4Clojure.com offer little puzzles to cut your teeth on. A cheatsheet of built-in functions can be found at https://clojure.org/api/cheatsheet.
 
 Some of the information in this post may only be approximately true but further refinements will have to be left for another time.
 
