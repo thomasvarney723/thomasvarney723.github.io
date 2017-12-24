@@ -69,9 +69,9 @@ Vectors have functions relevant for the type of data they are.
 </code></pre>
 
 <pre><code class="language-klipse">
-;; Vectors' indicies begin at zero.
-;; Text after a semicolon is a comment.
-;; Comments aren't evaluated.
+; Vectors' indicies begin at zero.
+; Text after a semicolon to the end of the line is a comment.
+; Comments aren't evaluated.
 
 (nth [3 2 1] 1)
 </code></pre>
@@ -90,7 +90,7 @@ Functions, data and application are all well and good but what’s the point of 
 
 <br>
 
-Let’s say you want the ability to test whether a number is less than 6. Testing 17 can be written like <code>(< 17 6)</code>. To make this more general so we can apply it to any number, we first insert a variable name where we want the input to our function to be substituted. You can choose any name you like for the variable. Then wrap the list in the <code>fn</code> function and place your variable name in a vector as the first argument to <code>fn</code>. 
+Let’s say you want the ability to test whether a number is less than 6. Testing 17 can be written like <code>(< 17 6)</code>. To make this more general so we can apply it to any number, we first insert a variable name where we want the input to our function to be substituted. You can choose any name you like for the variable. Then wrap the expression in the <code>fn</code> function and place your variable name in a vector as the first argument to <code>fn</code>. 
 
 <pre><code class="language-klipse">
 (fn [a-number] 
@@ -163,7 +163,7 @@ Splitting the rest of the elements in our collection into the lesser and greater
 
 <code>filterv</code> takes a function and a collection and returns only the elements of that collection which return <code>true</code> when applied to the function. Here we’ve selected the elements that are less than the first number in the collection.
 
-Notice how the function passed to <code>filterv</code> refers to  <code>coll</code>, the variable in the surrounding function. Functions can reference anything surrounding them. A variable defined locally, a variable defined in a surrounding function, something <code>def</code>-ed in the program, a built-in function - these are all said to be "in scope". If a function uses the same name for a variable as something that is already in scope it won't affect either one. However, the variable name in the inner function will overshadow the outer variable preventing the outer variable from being referenced from within the inner function. Scoping can be a strange concept until you've worked with it, luckily none of the code here does any overshadowing. 
+Notice how the function passed to <code>filterv</code> refers to  <code>coll</code>, the variable in the surrounding function. Functions can reference anything in or surrounding them. A variable defined locally, a variable defined in a surrounding function, something <code>def</code>-ed in the program, a built-in function - these are all said to be "in scope". If a function uses the same name for a variable as something that is already in scope it won't affect either one. However, the variable name in the inner function will overshadow the outer variable, function or data preventing the outer variable, function or data from being referenced in the inner function. Scoping can be a strange concept until you've worked with it, luckily none of the code here does any overshadowing. 
 
 If you take the output of <code>(lesser-numbers [6 5 8 11 3 2 7 9 4 1 10 12])</code> and repeatedly call <code>lesser-numbers</code> on it, you’ll begin to see the far left branch of our evaluation tree. Though you can do this by hand it can also be demonstrated directly in the language.
 
@@ -195,7 +195,7 @@ To collect elements which go in the right-side group we need only to select the 
 
 The repeating aspect of our sorting function will be accomplished by simply calling our sorting function again on each of our left and right groups. Defining a function in terms of itself? What a concept!
 
-Because concatenation is done only once at the end of our sorting function, we’ll wrap <code>concat</code> around the body of our function so that all the recursions take place before the concatenation. Also, the first element that we use to compare to the rest of our elements will need to be concatenated between the left and right groups. It must be placed in a vector because <code>concat</code> works on collections. Try <code>concat</code> with a naked scalar type and you’ll see it throws an error.
+Because concatenation is done only once at the end of our sorting function, we’ll pass the left group, first number and right group all to <code>concat</code> so that all the recursions take place before the concatenation. The first element that we use to compare to the rest of our elements must be placed in a vector because <code>concat</code> works on collections. Try <code>concat</code> with a naked scalar type and you’ll see it throws an error.
 
 <pre><code class="language-klipse">
 (concat [1 2 3] 4 [5 6 7])
@@ -218,9 +218,9 @@ Because concatenation is done only once at the end of our sorting function, we�
 #_(sort-numbers [6 5 8 11 3 2 7 9 4 1 10 12])
 </code></pre>
 
-Note that the functions passed to <code>filterv</code> both have variables named <code>x</code>. One <code>x</code> doesn't overshadow the other because neither function surrounds the other.
+Note that the functions passed to each <code>filterv</code> both have variables named <code>x</code>. One <code>x</code> doesn't overshadow the other because neither function surrounds the other.
 
-We’re almost there! If you now apply <code>sort-numbers</code> to our test data by uncommenting the last expression, you’ll receive some sort of "call stack overflow" error. This is because there is nothing that stops the recursion from terminating. At the two places where we call <code>sort-numbers</code>, our function goes around and around. It’s for this reason <code>(take-while not-empty </code> was needed in the example showing the left evaluation branch. We need the recursion to stop when some criteria is met. According to our english program the terminating condition is when the collection no longer has anything in it. <code>if</code> is a supremely useful function that will enable us to insert this check. <code>if</code> takes three arguments: a test, an output if the test evaluates to <code>true</code> and an output if the test evaluates to <code>false</code>. The test for if our variable <code>coll</code> is empty can be written simply as <code>(= [] coll)</code> and the false branch of our <code>if</code> function will contain the logic we've already covered.
+We’re almost there! If you now apply <code>sort-numbers</code> to our test data by uncommenting the last expression, you’ll receive some sort of "call stack overflow" error. This is because there is nothing that stops the recursion from terminating. At the two places where we call <code>sort-numbers</code>, our function goes around and around. It’s for this reason <code>(take-while not-empty </code> was needed in the example showing the left evaluation branch. We need the recursion to stop when some criteria is met. According to our english program the terminating condition, sometimes called the "base case", is when the collection no longer has anything in it. <code>if</code> is a supremely useful function that will enable us to insert this check. <code>if</code> takes three arguments: a test, an output if the test evaluates to <code>true</code> and an output if the test evaluates to <code>false</code>. The test for if our variable <code>coll</code> is empty can be written simply as <code>(= [] coll)</code> and the false branch of our <code>if</code> function will contain the logic we've already covered.
 
 <pre><code class="language-klipse">
 (def sort-numbers
@@ -247,9 +247,11 @@ As it turns out, the algorithm we’ve just implemented is known as Quicksort, o
 
 <br>
 
-The language we’ve been using is known as ClojureScript and it’s the nicest language I know because of its simplicity. It has far fewer syntax and semantics than most all other programming languages. This raw simplicity makes it more powerful than other languages, not less.
+The language we’ve been using is known as ClojureScript and it’s one of the world's nicest languages because of its simplicity. It has far fewer syntax and semantics than most all other programming languages. This raw simplicity makes it more powerful than other languages, not less.
 
 ClojureScript is a dialect of Clojure and designed to run in a web browser. The code we’ve explored here works in both languages. If you’re interested in playing more with Clojure, repl.it has a browser-based environment with a scratch area. clojurescriptkoans.com and 4Clojure.com offer little puzzles to cut your teeth on. A cheatsheet of built-in functions can be found at https://clojure.org/api/cheatsheet.
+
+Keep in mind that you learn to program by doing it, not just reading about it, so get to it!
 
 Some of the information in this post may only be approximately true but further refinements will have to be left for another time.
 

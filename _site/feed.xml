@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-12-24T13:09:03-06:00</updated><id>http://localhost:4000/</id><title type="html">thomasvarney723.github.io</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">An interactive introduction to programming with the world’s nicest language</title><link href="http://localhost:4000/2017/12/11/intro-to-programming.html" rel="alternate" type="text/html" title="An interactive introduction to programming with the world's nicest language" /><published>2017-12-11T22:44:00-06:00</published><updated>2017-12-11T22:44:00-06:00</updated><id>http://localhost:4000/2017/12/11/intro-to-programming</id><content type="html" xml:base="http://localhost:4000/2017/12/11/intro-to-programming.html">&lt;p&gt;In this short tutorial, we’ll cover the minimal knowledge necessary to begin writing programs. Programming is actually a lot like math.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-12-24T14:05:15-06:00</updated><id>http://localhost:4000/</id><title type="html">thomasvarney723.github.io</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">An interactive introduction to programming with the world’s nicest language</title><link href="http://localhost:4000/2017/12/11/intro-to-programming.html" rel="alternate" type="text/html" title="An interactive introduction to programming with the world's nicest language" /><published>2017-12-11T22:44:00-06:00</published><updated>2017-12-11T22:44:00-06:00</updated><id>http://localhost:4000/2017/12/11/intro-to-programming</id><content type="html" xml:base="http://localhost:4000/2017/12/11/intro-to-programming.html">&lt;p&gt;In this short tutorial, we’ll cover the minimal knowledge necessary to begin writing programs. Programming is actually a lot like math.&lt;/p&gt;
 
 &lt;p&gt;Wait! Don’t leave just yet! Fortunately, it’s nothing like the math classes you’ve likely been subjected to in school.&lt;/p&gt;
 
@@ -64,9 +64,9 @@
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-klipse&quot;&gt;
-;; Vectors' indicies begin at zero.
-;; Text after a semicolon is a comment.
-;; Comments aren't evaluated.
+; Vectors' indicies begin at zero.
+; Text after a semicolon to the end of the line is a comment.
+; Comments aren't evaluated.
 
 (nth [3 2 1] 1)
 &lt;/code&gt;&lt;/pre&gt;
@@ -85,7 +85,7 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;Let’s say you want the ability to test whether a number is less than 6. Testing 17 can be written like &lt;code&gt;(&amp;lt; 17 6)&lt;/code&gt;. To make this more general so we can apply it to any number, we first insert a variable name where we want the input to our function to be substituted. You can choose any name you like for the variable. Then wrap the list in the &lt;code&gt;fn&lt;/code&gt; function and place your variable name in a vector as the first argument to &lt;code&gt;fn&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Let’s say you want the ability to test whether a number is less than 6. Testing 17 can be written like &lt;code&gt;(&amp;lt; 17 6)&lt;/code&gt;. To make this more general so we can apply it to any number, we first insert a variable name where we want the input to our function to be substituted. You can choose any name you like for the variable. Then wrap the expression in the &lt;code&gt;fn&lt;/code&gt; function and place your variable name in a vector as the first argument to &lt;code&gt;fn&lt;/code&gt;.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-klipse&quot;&gt;
 (fn [a-number] 
@@ -158,7 +158,7 @@
 
 &lt;p&gt;&lt;code&gt;filterv&lt;/code&gt; takes a function and a collection and returns only the elements of that collection which return &lt;code&gt;true&lt;/code&gt; when applied to the function. Here we’ve selected the elements that are less than the first number in the collection.&lt;/p&gt;
 
-&lt;p&gt;Notice how the function passed to &lt;code&gt;filterv&lt;/code&gt; refers to  &lt;code&gt;coll&lt;/code&gt;, the variable in the surrounding function. Functions can reference anything surrounding them. A variable defined locally, a variable defined in a surrounding function, something &lt;code&gt;def&lt;/code&gt;-ed in the program, a built-in function - these are all said to be “in scope”. If a function uses the same name for a variable as something that is already in scope it won’t affect either one. However, the variable name in the inner function will overshadow the outer variable preventing the outer variable from being referenced from within the inner function. Scoping can be a strange concept until you’ve worked with it, luckily none of the code here does any overshadowing.&lt;/p&gt;
+&lt;p&gt;Notice how the function passed to &lt;code&gt;filterv&lt;/code&gt; refers to  &lt;code&gt;coll&lt;/code&gt;, the variable in the surrounding function. Functions can reference anything in or surrounding them. A variable defined locally, a variable defined in a surrounding function, something &lt;code&gt;def&lt;/code&gt;-ed in the program, a built-in function - these are all said to be “in scope”. If a function uses the same name for a variable as something that is already in scope it won’t affect either one. However, the variable name in the inner function will overshadow the outer variable, function or data preventing the outer variable, function or data from being referenced in the inner function. Scoping can be a strange concept until you’ve worked with it, luckily none of the code here does any overshadowing.&lt;/p&gt;
 
 &lt;p&gt;If you take the output of &lt;code&gt;(lesser-numbers [6 5 8 11 3 2 7 9 4 1 10 12])&lt;/code&gt; and repeatedly call &lt;code&gt;lesser-numbers&lt;/code&gt; on it, you’ll begin to see the far left branch of our evaluation tree. Though you can do this by hand it can also be demonstrated directly in the language.&lt;/p&gt;
 
@@ -190,7 +190,7 @@
 
 &lt;p&gt;The repeating aspect of our sorting function will be accomplished by simply calling our sorting function again on each of our left and right groups. Defining a function in terms of itself? What a concept!&lt;/p&gt;
 
-&lt;p&gt;Because concatenation is done only once at the end of our sorting function, we’ll wrap &lt;code&gt;concat&lt;/code&gt; around the body of our function so that all the recursions take place before the concatenation. Also, the first element that we use to compare to the rest of our elements will need to be concatenated between the left and right groups. It must be placed in a vector because &lt;code&gt;concat&lt;/code&gt; works on collections. Try &lt;code&gt;concat&lt;/code&gt; with a naked scalar type and you’ll see it throws an error.&lt;/p&gt;
+&lt;p&gt;Because concatenation is done only once at the end of our sorting function, we’ll pass the left group, first number and right group all to &lt;code&gt;concat&lt;/code&gt; so that all the recursions take place before the concatenation. The first element that we use to compare to the rest of our elements must be placed in a vector because &lt;code&gt;concat&lt;/code&gt; works on collections. Try &lt;code&gt;concat&lt;/code&gt; with a naked scalar type and you’ll see it throws an error.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-klipse&quot;&gt;
 (concat [1 2 3] 4 [5 6 7])
@@ -213,9 +213,9 @@
 #_(sort-numbers [6 5 8 11 3 2 7 9 4 1 10 12])
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Note that the functions passed to &lt;code&gt;filterv&lt;/code&gt; both have variables named &lt;code&gt;x&lt;/code&gt;. One &lt;code&gt;x&lt;/code&gt; doesn’t overshadow the other because neither function surrounds the other.&lt;/p&gt;
+&lt;p&gt;Note that the functions passed to each &lt;code&gt;filterv&lt;/code&gt; both have variables named &lt;code&gt;x&lt;/code&gt;. One &lt;code&gt;x&lt;/code&gt; doesn’t overshadow the other because neither function surrounds the other.&lt;/p&gt;
 
-&lt;p&gt;We’re almost there! If you now apply &lt;code&gt;sort-numbers&lt;/code&gt; to our test data by uncommenting the last expression, you’ll receive some sort of “call stack overflow” error. This is because there is nothing that stops the recursion from terminating. At the two places where we call &lt;code&gt;sort-numbers&lt;/code&gt;, our function goes around and around. It’s for this reason &lt;code&gt;(take-while not-empty &lt;/code&gt; was needed in the example showing the left evaluation branch. We need the recursion to stop when some criteria is met. According to our english program the terminating condition is when the collection no longer has anything in it. &lt;code&gt;if&lt;/code&gt; is a supremely useful function that will enable us to insert this check. &lt;code&gt;if&lt;/code&gt; takes three arguments: a test, an output if the test evaluates to &lt;code&gt;true&lt;/code&gt; and an output if the test evaluates to &lt;code&gt;false&lt;/code&gt;. The test for if our variable &lt;code&gt;coll&lt;/code&gt; is empty can be written simply as &lt;code&gt;(= [] coll)&lt;/code&gt; and the false branch of our &lt;code&gt;if&lt;/code&gt; function will contain the logic we’ve already covered.&lt;/p&gt;
+&lt;p&gt;We’re almost there! If you now apply &lt;code&gt;sort-numbers&lt;/code&gt; to our test data by uncommenting the last expression, you’ll receive some sort of “call stack overflow” error. This is because there is nothing that stops the recursion from terminating. At the two places where we call &lt;code&gt;sort-numbers&lt;/code&gt;, our function goes around and around. It’s for this reason &lt;code&gt;(take-while not-empty &lt;/code&gt; was needed in the example showing the left evaluation branch. We need the recursion to stop when some criteria is met. According to our english program the terminating condition, sometimes called the “base case”, is when the collection no longer has anything in it. &lt;code&gt;if&lt;/code&gt; is a supremely useful function that will enable us to insert this check. &lt;code&gt;if&lt;/code&gt; takes three arguments: a test, an output if the test evaluates to &lt;code&gt;true&lt;/code&gt; and an output if the test evaluates to &lt;code&gt;false&lt;/code&gt;. The test for if our variable &lt;code&gt;coll&lt;/code&gt; is empty can be written simply as &lt;code&gt;(= [] coll)&lt;/code&gt; and the false branch of our &lt;code&gt;if&lt;/code&gt; function will contain the logic we’ve already covered.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-klipse&quot;&gt;
 (def sort-numbers
@@ -242,9 +242,11 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;The language we’ve been using is known as ClojureScript and it’s the nicest language I know because of its simplicity. It has far fewer syntax and semantics than most all other programming languages. This raw simplicity makes it more powerful than other languages, not less.&lt;/p&gt;
+&lt;p&gt;The language we’ve been using is known as ClojureScript and it’s one of the world’s nicest languages because of its simplicity. It has far fewer syntax and semantics than most all other programming languages. This raw simplicity makes it more powerful than other languages, not less.&lt;/p&gt;
 
 &lt;p&gt;ClojureScript is a dialect of Clojure and designed to run in a web browser. The code we’ve explored here works in both languages. If you’re interested in playing more with Clojure, repl.it has a browser-based environment with a scratch area. clojurescriptkoans.com and 4Clojure.com offer little puzzles to cut your teeth on. A cheatsheet of built-in functions can be found at https://clojure.org/api/cheatsheet.&lt;/p&gt;
+
+&lt;p&gt;Keep in mind that you learn to program by doing it, not just reading about it, so get to it!&lt;/p&gt;
 
 &lt;p&gt;Some of the information in this post may only be approximately true but further refinements will have to be left for another time.&lt;/p&gt;
 
