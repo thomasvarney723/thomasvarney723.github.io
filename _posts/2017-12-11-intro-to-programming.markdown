@@ -2,10 +2,8 @@
 layout: post
 title:  "An introduction to programming using the nicest language I know"
 date:   2017-12-11 22:44:00 -0600
-categories: jekyll update
+categories:
 ---
-
-{% include klipse.html %}
 
 In this short tutorial, we’ll cover the minimal knowledge necessary to begin writing programs. Programming is actually a lot like math.
 
@@ -172,12 +170,14 @@ If you take the output of <code>(lesser-numbers [6 5 8 11 3 2 7 9 4 1 10 12])</c
   (fn [coll]
     (filterv (fn [x]
     	       (< x (first coll)))
-             (rest coll)))
+             (rest coll))))
 
 (take-while not-empty
             (iterate lesser-numbers
                      [6 5 8 11 3 2 7 9 4 1 10 12]))
 </code></pre>
+
+![Left Evaluation Branch]({{ "/assets/left-branch.png" | absolute_url }})
 
 Testing ideas like this by giving the computer snippets of code and examining the return value is akin to having a conversation with the computer in which you can bounce ideas off it (“Do these pants go with my shoes?”).
 
@@ -239,7 +239,6 @@ We’re almost there! If you now apply <code>sort-numbers</code> to our test dat
 (sort-numbers [6 5 8 11 3 2 7 9 4 1 10 12])
 </code></pre>
 
-
 Returning an empty vector in the case that our collection is empty works because <code>concat</code>-ing any vector with an empty vector returns the same vector. Another way to think about this is that we are going to recurse until we get to a collection that we know to be sorted - an empty one.
 
 As it turns out, the algorithm we’ve just implemented is known as Quicksort, one of many different sorting algorithms. What did you expect for your first program, a general purpose artificial intelligence? Surely, a sorting function is a necessary component so you’re part-way there!
@@ -253,3 +252,19 @@ ClojureScript is a dialect of Clojure and designed to run in a web browser. The 
 Some of the information in this post may only be approximately true but further refinements will have to be left for another time.
 
 Happy computing!
+
+<style>
+* {
+  background: #b3d9ff;
+}
+<style>
+
+<link rel="stylesheet" type="text/css" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css">
+
+<script src="https://storage.googleapis.com/app.klipse.tech/plugin/js/klipse_plugin.js"></script>
+
+<script>
+  window.klipse_settings = {
+    selector: '.language-klipse'// css selector for the html elements you want to klipsify
+  };
+</script>
