@@ -35,11 +35,11 @@ Application is how we combine functions and data to build new forms. If you thin
 (* 3 -4.9 11/7)
 </code></pre>
 
-In the more familiar mathematical syntax this is equivalent to "3 x -4.9 x 5/7".
+In the more familiar mathematical syntax this is equivalent to "3 x -4.9 x 11/7".
 
 Often we say that we "call" a function on some inputs or we "pass" some inputs to a function and are given back a "result" or "return value". Inputs to a function may also be called "arguments" or "parameters" to that function. Whatever the vernacular, it's always the case that we apply a function to zero or more inputs and the computer gives us back exactly one output.
 
-All the code in this tutorial can be edited and the computer will reevaluate it. The output is displayed just below each code snippet. Try swapping one of the inputs for <code>"eight"</code> in the previous example. Because words have no meaning in the context of addition the computer will complain loudly.
+All the code in this tutorial can be edited and the computer will reevaluate it. The output is displayed just below each code snippet. Try swapping one of the inputs for <code>"eight"</code> in the previous example. Because strings, as they're called, have no meaning in the context of addition the computer will complain loudly.
 
 Chaining computations can be achieved by nesting expressions and this can be done to any depth. The output of each subexpression becomes the input to another.
 
