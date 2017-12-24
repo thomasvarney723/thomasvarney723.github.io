@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "An introduction to programming using the nicest language I know"
+title:  "An interactive introduction to programming with the world's nicest language"
 date:   2017-12-11 22:44:00 -0600
 categories:
 ---
