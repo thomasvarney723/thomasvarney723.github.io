@@ -32,14 +32,14 @@ The language we’ll be using is a simple one comprised of only three things: fu
 Application is how we combine functions and data to build new forms. If you think of functions as verbs and data as nouns, application is how we form sentences. Application is expressed with a grouping of parenthesis in which the first element is always a function and any subsequent elements are inputs to the function. At least one whitespace character must seperate each element. Let’s multiply some numbers.
 
 <pre><code class="language-klipse">
-(* 3 -4.9 5/7)
+(* 3 -4.9 11/7)
 </code></pre>
 
 In the more familiar mathematical syntax this is equivalent to "3 x -4.9 x 5/7".
 
-Often we say that we "call" a function on some inputs or we "pass" some inputs to a function and are given back a "result" or "return value". Inputs to a function may also be called "arguments" or "parameters" to that function. Whatever the vernacular, it's always the case that we apply a function to zero or more inputs and get back exactly one output.
+Often we say that we "call" a function on some inputs or we "pass" some inputs to a function and are given back a "result" or "return value". Inputs to a function may also be called "arguments" or "parameters" to that function. Whatever the vernacular, it's always the case that we apply a function to zero or more inputs and the computer gives us back exactly one output.
 
-All the code in this tutorial can be edited and the computer will reevaluate it. The output is displayed just below each code snippet. Try swapping one of the inputs for <code>"eight"</code> in the previous example. Because english words have no meaning in the context of addition the computer will complain loudly.
+All the code in this tutorial can be edited and the computer will reevaluate it. The output is displayed just below each code snippet. Try swapping one of the inputs for <code>"eight"</code> in the previous example. Because words have no meaning in the context of addition the computer will complain loudly.
 
 Chaining computations can be achieved by nesting expressions and this can be done to any depth. The output of each subexpression becomes the input to another.
 
@@ -69,13 +69,15 @@ Vectors have functions relevant for the type of data they are.
 </code></pre>
 
 <pre><code class="language-klipse">
-(nth [3 2 1] 1)  ;; Collections' indicies begin at zero.
-                 ;; Text after a semicolon is a comment.
-		 ;; Comments aren't evaluated.
+;; Vectors' indicies begin at zero.
+;; Text after a semicolon is a comment.
+;; Comments aren't evaluated.
+
+(nth [3 2 1] 1)
 </code></pre>
 
 <pre><code class="language-klipse">
-(conj [3 2 1] "go")
+(conj [3 2 1] "go!")
 </code></pre>
 
 <pre><code class="language-klipse">
@@ -122,7 +124,7 @@ Making functions that take only one input may seem limiting. You can add as many
 <pre><code class="language-klipse">
 (def weird-fn 
   (fn [w x y z] 
-    (< (- y) y x (* z z)))
+    (< (- y) y x (* z z))))
 
 (weird-fn -2 3 2 4)
 </code></pre>
@@ -154,7 +156,7 @@ Splitting the rest of the elements in our collection into the lesser and greater
   (fn [coll]
     (filterv (fn [x]
     	       (< x (first coll)))
-             (rest coll)))
+             (rest coll))))
 
 (lesser-numbers [6 5 8 11 3 2 7 9 4 1 10 12])
 </code></pre>
@@ -188,7 +190,7 @@ To collect elements which go in the right-side group we need only to select the 
    (filterv (fn [x]
     	      (not (< x (first coll))))
             (rest coll)))
-  numbers)
+  [6 5 8 11 3 2 7 9 4 1 10 12])
 </code></pre>
 
 The repeating aspect of our sorting function will be accomplished by simply calling our sorting function again on each of our left and right groups. Defining a function in terms of itself? What a concept!
@@ -207,7 +209,7 @@ Because concatenation is done only once at the end of our sorting function, we�
          (filterv (fn [x]                     ; <-- left group
                     (< x (first coll))) 
                   (rest coll)))         
-      [(first classmates)]                    ; <-- first number
+      [(first coll)]                          ; <-- first number
       (sort-numbers 
          (filterv (fn [x]                     
                     (not (< x (first coll)))) ; <-- right group
@@ -216,9 +218,9 @@ Because concatenation is done only once at the end of our sorting function, we�
 #_(sort-numbers [6 5 8 11 3 2 7 9 4 1 10 12])
 </code></pre>
 
-Note that the functions passed to <code>filterv</code> both have variables named <code>x</code>. One <code>x</code> doesn't overshadow another because neither function surrounds the other.
+Note that the functions passed to <code>filterv</code> both have variables named <code>x</code>. One <code>x</code> doesn't overshadow the other because neither function surrounds the other.
 
-We’re almost there! If you now apply <code>sort-numbers</code> to our test data by uncommenting the last expression, you’ll receive some sort of "call stack overflow" error. This is because there is nothing that stops the recursion from terminating. At the two places where we call <code>sort-numbers</code>, our function goes around and around. It’s for this reason <code>(take-while not-empty </code> was needed in the example showing the left evaluation branch. We need the recursion to stop when some criteria is met. According to our english program the terminating condition is when the collection no longer has anything in it. <code>if</code> is a supremely useful function that will enable us to insert this check. <code>if</code> takes three inputs: a test, an output if the test evaluates to <code>true</code> and an output if the test evaluates to <code>false</code>. The test for if our variable <code>coll</code> is empty can be written simply as <code>(= [] coll)</code> and the false branch of our <code>if</code> function will contain the logic we've already covered.
+We’re almost there! If you now apply <code>sort-numbers</code> to our test data by uncommenting the last expression, you’ll receive some sort of "call stack overflow" error. This is because there is nothing that stops the recursion from terminating. At the two places where we call <code>sort-numbers</code>, our function goes around and around. It’s for this reason <code>(take-while not-empty </code> was needed in the example showing the left evaluation branch. We need the recursion to stop when some criteria is met. According to our english program the terminating condition is when the collection no longer has anything in it. <code>if</code> is a supremely useful function that will enable us to insert this check. <code>if</code> takes three arguments: a test, an output if the test evaluates to <code>true</code> and an output if the test evaluates to <code>false</code>. The test for if our variable <code>coll</code> is empty can be written simply as <code>(= [] coll)</code> and the false branch of our <code>if</code> function will contain the logic we've already covered.
 
 <pre><code class="language-klipse">
 (def sort-numbers
@@ -230,7 +232,7 @@ We’re almost there! If you now apply <code>sort-numbers</code> to our test dat
             (filterv (fn [x]
                        (< x (first coll)))
                      (rest coll)))
-          [(first numbers)]
+          [(first coll)]
           (sort-numbers
             (filterv (fn [x]
                        (not (< x (first coll))))
