@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "An interactive introduction to programming with the world's nicest language"
+title:  "An interactive introduction to programming with one of the world's best languages"
 date:   2017-12-11 22:44:00 -0600
 categories:
 ---
@@ -13,7 +13,7 @@ Wait! Don’t leave just yet! Fortunately, it's nothing like the math classes yo
 
 Programming differs from math in two important ways. Firstly, when writing programs you’re always accompanied by a partner. As with any good group-work the division of labor in this relationship is rather lopsided. Your partner in this case is, of course, the computer. While being far more rational than you (someone had to say it), the computer is too stupid to think for itself and will do virtually anything you ask it to. Its toil frees you from solving for x for the zillionth time in a cramped chair and desk. Delegating this task of evaluation to the computer turns an otherwise monotonous task into a creative one.
 
-Secondly, and most importantly, programming languages have collections. Most math curricula in schools deal exclusively with scalar types. That is every value, or placeholder for a value, in an expression is a single value. 4 is a scalar value as is 273.45. Numbers, in this case, and their accompanied operations like addition  are frequently insufficient for all but the most boring of programs. Collections enable us to group many values together and manipulate them as one value.
+Secondly, and most importantly, programming languages have collections. Most math curricula in schools deal exclusively with what you might call "scalar types". That is every value, or placeholder for a value, in an expression is a single value. 4 is a scalar value as is 273.45. Numbers, in this case, and their accompanied operations like addition  are frequently insufficient for all but the most boring of programs. Collections enable us to group many values together and manipulate them as one value.
 
 You may already know that a program is just a group of smaller programs specified in a particular order. Let’s say you want to write a sequence of steps to sort a collection of numbers. One possible solution might go something like this: 
 
@@ -23,7 +23,7 @@ You may already know that a program is just a group of smaller programs specifie
 
 ![Quicksort]({{ "/assets/quicksort.gif" | absolute_url }})
 
-Treating the numbers as a collection allows us to easily express a procedure to sort it. Notice that terms like "first", "rest", "left", "right", "empty" and "concatenate" are operations appropriate for collections just as arithmetic is for numbers.
+Putting the numbers into a collection allows us to easily express a procedure to sort it. Notice that terms like "first", "rest", "left", "right", "empty" and "concatenate" are operations appropriate for collections just as arithmetic is for numbers.
 
 While the steps above make for a perfectly reasonable program, English might as well be Greek to your dim-witted pal the computer. We’ll need to write our program in terms even it can understand. This is where a programming language comes in.
 
@@ -31,7 +31,7 @@ While the steps above make for a perfectly reasonable program, English might as 
 
 The language we’ll be using is a simple one comprised of only three things: functions, data and application. We’ve already mentioned numbers and collections, they fall into the category of data. Data is static and there is no more to it than what you see. Functions are the opposite, they're the doers that make a program worth writing at all.
 
-Application is how we combine functions and data to build new forms. If you think of functions as verbs and data as nouns, application is how we form sentences. Application is expressed with a grouping of parenthesis in which the first element is always a function and any subsequent elements are inputs to the function. At least one whitespace character must seperate each element. Let’s multiply some numbers.
+Application is how we combine functions and data to make new forms. If you think of functions as verbs and data as nouns, application is how we form sentences. Application is expressed with a grouping of parenthesis in which the first element is always a function and any subsequent elements are inputs to the function. At least one whitespace character must seperate each element. Let’s multiply some numbers.
 
 <pre><code class="language-klipse">
 (* 3 -4.9 11/7)
@@ -41,7 +41,7 @@ In the more familiar mathematical syntax this is equivalent to "3 x -4.9 x 11/7"
 
 Often we say that we "call" a function on some inputs or we "pass" some inputs to a function and are given back a "result" or "return value". Inputs to a function may also be called "arguments" or "parameters" to that function. Whatever the vernacular, it's always the case that we apply a function to zero or more inputs and the computer gives us back exactly one output.
 
-All the code in this tutorial can be edited and the computer will reevaluate it. The output is displayed just below each code snippet. Try swapping one of the inputs for <code>"eight"</code> in the previous example. Because strings, as they're called, have no meaning in the context of addition the computer will complain loudly.
+All the code in this tutorial can be edited and the computer will reevaluate it. The output is displayed just below each code snippet. Try swapping one of the inputs for <code>"eight"</code> in the previous example. Because strings, as they're called, have no meaning in the context of addition the computer will give a bogus response.
 
 Chaining computations can be achieved by nesting expressions and this can be done to any depth. The output of each subexpression becomes the input to another.
 
@@ -51,11 +51,11 @@ Chaining computations can be achieved by nesting expressions and this can be don
 
 Note that delimiters such as parens must always be balanced for code to be valid. The previous expression is equivalent to ‘2 / (3 - 5  - (1 + 2) - -10)’.
 
-Now what about those collections? Vectors, one type of collection, are notated with square brackets instead of parens. Vectors too can be nested to any depth. <code>[\$ "Hickey" -> [cat true]]</code> is a vector of four items. Vectors can contain a mix of different types; in this case: a character, string, macro and another vector containing a function and a boolean. Also note that ordering matters.
+Now what about those collections? Vectors, one type of collection, are notated with square brackets instead of parens. Vectors too can be nested to any depth. <code>[\$ "Hickey" -> [map true]]</code> is a vector of four items. Vectors can contain a mix of different types; in this case: a character, string, macro and another vector containing a function and a boolean. Also note that ordering matters.
 
 <pre><code class="language-klipse">
-(= [\$ "Hickey" -> [cat true]] 
-   ["Hickey" [cat true] \$ ->])
+(= [\$ "Hickey" -> [map true]] 
+   ["Hickey" [map true] \$ ->])
 </code></pre>
 
 Put the elements of the two vectors in the same order and you'll see the computer will treat them as equal.
@@ -71,7 +71,7 @@ Vectors have functions relevant for the type of data they are.
 </code></pre>
 
 <pre><code class="language-klipse">
-; Vectors' indicies begin at zero.
+; The first element in a vector is the zero-ith.
 ; Text after a semicolon to the end of the line is a comment.
 ; Comments aren't evaluated.
 
@@ -99,7 +99,7 @@ Let’s say you want the ability to test whether a number is less than 6. Testin
   (< a-number 6))
 </code></pre>
 
-Note the use of a hyphen in place of a space in our variable name. Because whitespace is used to seperate elements, we must use something else in lieu of spaces. All whitespace characters are equivelant in this language so indentation has no meaning, however, it can be employed to make the structure of code more apparent.
+Note the use of a hyphen instead of a space in our variable name. Because whitespace is used to seperate elements, we must use something else in lieu of spaces. All whitespace characters are equivelant in this language so indentation has no meaning, however, it can be employed to make the structure of code more apparent.
 
 We can now use our new function just as we can a built-in like <code>+</code>.
 
@@ -113,8 +113,8 @@ This works but is cumbersome. If we intend to use this same function in more tha
 
 <pre><code class="language-klipse">
 (def less-than-6? 
-  (fn [cool-number]
-    (< cool-number 6)))
+  (fn [a-number]
+    (< a-number 6)))
 
 (less-than-6? 17)
 </code></pre>
@@ -126,7 +126,7 @@ Making functions that take only one input may seem limiting. You can add as many
 <pre><code class="language-klipse">
 (def weird-fn 
   (fn [w x y z] 
-    (< (- y) y x (* z z))))
+    (< (- y) x (* z z) y)))
 
 (weird-fn -2 3 2 4)
 </code></pre>
@@ -154,6 +154,16 @@ Those to be placed on either side can be selected with <code>rest</code>.
 Splitting the rest of the elements in our collection into the lesser and greater groups is the trickiest part of the program. We can go to the trouble of writing a bespoke function that does this for us but I think you’ll find that <code>filterv</code> does just what we’re looking for.
 
 <pre><code class="language-klipse">
+(filterv (fn [x]
+	   (< x (first [6 5 8 11 3 2 7 9 4 1 10 12])))
+         (rest [6 5 8 11 3 2 7 9 4 1 10 12]))
+</code></pre>
+
+<code>filterv</code> takes a function and a collection and returns only the elements of that collection which return <code>true</code> when applied to the function. Here we’ve selected the rest of the elements that are less than the first element in the collection.
+
+Just as we did in the example containing <code>(< 17 6)</code> we can generalize this expression by replacing the vector of numbers with a variable. "coll" is often used for collections. Let's give the function a name too while we're at it.
+
+<pre><code class="language-klipse">
 (def lesser-numbers
   (fn [coll]
     (filterv (fn [x]
@@ -163,11 +173,9 @@ Splitting the rest of the elements in our collection into the lesser and greater
 (lesser-numbers [6 5 8 11 3 2 7 9 4 1 10 12])
 </code></pre>
 
-<code>filterv</code> takes a function and a collection and returns only the elements of that collection which return <code>true</code> when applied to the function. Here we’ve selected the elements that are less than the first number in the collection.
+Notice how the function passed to <code>filterv</code> refers to  <code>coll</code>, the variable in the surrounding function. Functions can reference anything in or surrounding them. A variable defined locally, a variable defined in a surrounding function, something <code>def</code>-ed in the program, a built-in function - these are all said to be "in scope". If a function uses the same name for a variable as something that is already in scope it won't affect either one. However, the variable name in the inner function will overshadow the outer thing preventing the outer thing from being referenced in the inner function. Scoping can be a strange concept until you've worked with it, luckily none of the code here does any overshadowing. 
 
-Notice how the function passed to <code>filterv</code> refers to  <code>coll</code>, the variable in the surrounding function. Functions can reference anything in or surrounding them. A variable defined locally, a variable defined in a surrounding function, something <code>def</code>-ed in the program, a built-in function - these are all said to be "in scope". If a function uses the same name for a variable as something that is already in scope it won't affect either one. However, the variable name in the inner function will overshadow the outer variable, function or data preventing the outer variable, function or data from being referenced in the inner function. Scoping can be a strange concept until you've worked with it, luckily none of the code here does any overshadowing. 
-
-If you take the output of <code>(lesser-numbers [6 5 8 11 3 2 7 9 4 1 10 12])</code> and repeatedly call <code>lesser-numbers</code> on it, you’ll begin to see the far left branch of our evaluation tree. Though you can do this by hand it can also be demonstrated directly in the language.
+If you take the output of <code>(lesser-numbers [6 5 8 11 3 2 7 9 4 1 10 12])</code> and repeatedly call <code>lesser-numbers</code> on it, you’ll begin to see the far left branch of our evaluation tree. Though you can do this by hand it can also be modeled within the language.
 
 <pre><code class="language-klipse">
 (def lesser-numbers
@@ -245,7 +253,7 @@ As it turns out, the algorithm we’ve just implemented is known as Quicksort, o
 
 <br>
 
-The language we’ve been using is known as ClojureScript and it’s one of the world's nicest languages because of its simplicity. It has far fewer syntax and semantics than most all other programming languages. This raw simplicity makes it more powerful than other languages, not less.
+The language we’ve been using is known as ClojureScript and it’s one of the world's best languages because of its simplicity. It has far fewer syntax and semantics than most other programming languages. This raw simplicity makes it more powerful than other languages, not less.
 
 ClojureScript is a dialect of Clojure and designed to run in a web browser. The code we’ve explored here works in both languages. If you’re interested in playing more with Clojure, <a href="repl.it">repl.it</a> has a browser-based environment with a scratch area. A cheatsheet of built-in functions can be found at <a href="https://clojure.org/api/cheatsheet">https://clojure.org/api/cheatsheet</a> and <a href="clojurescriptkoans.com">clojurescriptkoans.com</a> and <a href="4Clojure.com">4Clojure.com</a> both offer little puzzles to cut your teeth on.
 
