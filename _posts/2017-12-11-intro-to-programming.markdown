@@ -260,7 +260,7 @@ Some of the information in this post may only be approximately true but further 
 Happy computing!
 
 <style>
-* {
+body {
   background: #b3d9ff;
 }
 </style>
