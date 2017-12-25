@@ -151,7 +151,7 @@ Those to be placed on either side can be selected with <code>rest</code>.
 (rest [6 5 8 11 3 2 7 9 4 1 10 12])
 </code></pre>
 
-Splitting the rest of the elements in our collection into the lesser and greater groups is the trickiest part of the program. We can go to the trouble of writing a bespoke function that does this for us but <code>filterv</code> actually does just what we’re looking for.
+Splitting the rest of the elements in our collection into the lesser and greater groups is the trickiest part of the program. We can go to the trouble of writing a bespoke function that does this but <code>filterv</code> actually does just what we need.
 
 <pre><code class="language-klipse">
 (filterv (fn [x]
