@@ -247,7 +247,7 @@ As it turns out, the algorithm we’ve just implemented is known as Quicksort, o
 
 The language we’ve been using is known as ClojureScript and it’s one of the world's nicest languages because of its simplicity. It has far fewer syntax and semantics than most all other programming languages. This raw simplicity makes it more powerful than other languages, not less.
 
-ClojureScript is a dialect of Clojure and designed to run in a web browser. The code we’ve explored here works in both languages. If you’re interested in playing more with Clojure, repl.it has a browser-based environment with a scratch area. clojurescriptkoans.com and 4Clojure.com offer little puzzles to cut your teeth on. A cheatsheet of built-in functions can be found at https://clojure.org/api/cheatsheet.
+ClojureScript is a dialect of Clojure and designed to run in a web browser. The code we’ve explored here works in both languages. If you’re interested in playing more with Clojure, <a href="repl.it">repl.it</a> has a browser-based environment with a scratch area. <a href="clojurescriptkoans.com">clojurescriptkoans.com</a> and <a href="4Clojure.com">4Clojure.com</a> offer little puzzles to cut your teeth on. A cheatsheet of built-in functions can be found at <a href="https://clojure.org/api/cheatsheet">https://clojure.org/api/cheatsheet</a>
 
 Keep in mind that you learn to program by doing it, not just reading about it, so get to it!
 
