@@ -241,13 +241,13 @@ We’re almost there! If you now apply <code>sort-numbers</code> to our test dat
 
 Returning an empty vector in the case that our collection is empty works because <code>concat</code>-ing any vector with an empty vector returns the same vector. Another way to think about this is that we are going to recurse until we get to a collection that we know to be sorted - an empty one.
 
-As it turns out, the algorithm we’ve just implemented is known as Quicksort, one of many different sorting algorithms. What did you expect for your first program, a general purpose artificial intelligence? Surely, a sorting function is a necessary component so you’re part-way there!
+As it turns out, the algorithm we’ve just implemented is known as Quicksort, one of many different sorting algorithms. What did you expect for your first program, a general purpose artificial intelligence? Surely, sorting functionality is a necessary component so you’re part-way there!
 
 <br>
 
 The language we’ve been using is known as ClojureScript and it’s one of the world's nicest languages because of its simplicity. It has far fewer syntax and semantics than most all other programming languages. This raw simplicity makes it more powerful than other languages, not less.
 
-ClojureScript is a dialect of Clojure and designed to run in a web browser. The code we’ve explored here works in both languages. If you’re interested in playing more with Clojure, <a href="repl.it">repl.it</a> has a browser-based environment with a scratch area. <a href="clojurescriptkoans.com">clojurescriptkoans.com</a> and <a href="4Clojure.com">4Clojure.com</a> offer little puzzles to cut your teeth on. A cheatsheet of built-in functions can be found at <a href="https://clojure.org/api/cheatsheet">https://clojure.org/api/cheatsheet</a>
+ClojureScript is a dialect of Clojure and designed to run in a web browser. The code we’ve explored here works in both languages. If you’re interested in playing more with Clojure, <a href="repl.it">repl.it</a> has a browser-based environment with a scratch area. A cheatsheet of built-in functions can be found at <a href="https://clojure.org/api/cheatsheet">https://clojure.org/api/cheatsheet</a> and <a href="clojurescriptkoans.com">clojurescriptkoans.com</a> and <a href="4Clojure.com">4Clojure.com</a> both offer little puzzles to cut your teeth on.
 
 Keep in mind that you learn to program by doing it, not just reading about it, so get to it!
 
