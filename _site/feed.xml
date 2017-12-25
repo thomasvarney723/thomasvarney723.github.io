@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-12-24T14:12:22-06:00</updated><id>http://localhost:4000/</id><title type="html">thomasvarney723.github.io</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">An interactive introduction to programming with the world’s nicest language</title><link href="http://localhost:4000/2017/12/11/intro-to-programming.html" rel="alternate" type="text/html" title="An interactive introduction to programming with the world's nicest language" /><published>2017-12-11T22:44:00-06:00</published><updated>2017-12-11T22:44:00-06:00</updated><id>http://localhost:4000/2017/12/11/intro-to-programming</id><content type="html" xml:base="http://localhost:4000/2017/12/11/intro-to-programming.html">&lt;p&gt;In this short tutorial, we’ll cover the minimal knowledge necessary to begin writing programs. Programming is actually a lot like math.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-12-24T18:50:18-06:00</updated><id>http://localhost:4000/</id><title type="html">thomasvarney723.github.io</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">An interactive introduction to programming with the world’s nicest language</title><link href="http://localhost:4000/2017/12/11/intro-to-programming.html" rel="alternate" type="text/html" title="An interactive introduction to programming with the world's nicest language" /><published>2017-12-11T22:44:00-06:00</published><updated>2017-12-11T22:44:00-06:00</updated><id>http://localhost:4000/2017/12/11/intro-to-programming</id><content type="html" xml:base="http://localhost:4000/2017/12/11/intro-to-programming.html">&lt;meta charset=&quot;utf-8&quot; /&gt;
+
+&lt;p&gt;In this short tutorial, we’ll cover the minimal knowledge necessary to begin writing programs. Programming is actually a lot like math.&lt;/p&gt;
 
 &lt;p&gt;Wait! Don’t leave just yet! Fortunately, it’s nothing like the math classes you’ve likely been subjected to in school.&lt;/p&gt;
 
@@ -256,18 +258,19 @@
 * {
   background: #b3d9ff;
 }
-&lt;style&gt;
+&lt;/style&gt;
 
-&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://storage.googleapis.com/app.klipse.tech/css/codemirror.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://storage.googleapis.com/app.klipse.tech/css/codemirror.css&quot; /&gt;
 
-&lt;script src=&quot;https://storage.googleapis.com/app.klipse.tech/plugin/js/klipse_plugin.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt; console.log(&quot;hello from script tag.&quot;) &lt;/script&gt;
 
 &lt;script&gt;
   window.klipse_settings = {
     selector: '.language-klipse'// css selector for the html elements you want to klipsify
   };
 &lt;/script&gt;
-&lt;/style&gt;</content><author><name></name></author><summary type="html">In this short tutorial, we’ll cover the minimal knowledge necessary to begin writing programs. Programming is actually a lot like math.</summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2017/12/11/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2017-12-11T22:22:58-06:00</published><updated>2017-12-11T22:22:58-06:00</updated><id>http://localhost:4000/jekyll/update/2017/12/11/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2017/12/11/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+
+&lt;script src=&quot;https://storage.googleapis.com/app.klipse.tech/plugin/js/klipse_plugin.js&quot;&gt;&lt;/script&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2017/12/11/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2017-12-11T22:22:58-06:00</published><updated>2017-12-11T22:22:58-06:00</updated><id>http://localhost:4000/jekyll/update/2017/12/11/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2017/12/11/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
 
 &lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
 

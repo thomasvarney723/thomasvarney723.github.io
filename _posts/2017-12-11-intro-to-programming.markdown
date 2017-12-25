@@ -5,6 +5,8 @@ date:   2017-12-11 22:44:00 -0600
 categories:
 ---
 
+<meta charset="utf-8">
+
 In this short tutorial, we’ll cover the minimal knowledge necessary to begin writing programs. Programming is actually a lot like math.
 
 Wait! Don’t leave just yet! Fortunately, it's nothing like the math classes you’ve likely been subjected to in school.
@@ -261,14 +263,16 @@ Happy computing!
 * {
   background: #b3d9ff;
 }
-<style>
+</style>
 
 <link rel="stylesheet" type="text/css" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css">
 
-<script src="https://storage.googleapis.com/app.klipse.tech/plugin/js/klipse_plugin.js"></script>
+<script> console.log("hello from script tag.") </script>
 
 <script>
   window.klipse_settings = {
     selector: '.language-klipse'// css selector for the html elements you want to klipsify
   };
 </script>
+
+<script src="https://storage.googleapis.com/app.klipse.tech/plugin/js/klipse_plugin.js"></script>
