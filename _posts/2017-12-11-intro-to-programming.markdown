@@ -106,7 +106,7 @@ We can now use our new function just as we can a built-in like <code>+</code>.
 <pre><code class="language-klipse">
 ((fn [a-number]
    (< a-number 6))
-  17)
+ 17)
 </code></pre>
 
 This works but is cumbersome. If we intend to use this same function in more than one place in our program it’s helpful to bind the definition to a name so that we may refer to it again.
@@ -192,30 +192,26 @@ To collect elements which go in the right-side group we need only to select the 
    (filterv (fn [x]
     	      (not (< x (first coll))))
             (rest coll)))
-  [6 5 8 11 3 2 7 9 4 1 10 12])
+ [6 5 8 11 3 2 7 9 4 1 10 12])
 </code></pre>
 
 The repeating aspect of our sorting function will be accomplished by simply calling our sorting function again on each of our left and right groups. Defining a function in terms of itself? What a concept!
 
-Because concatenation is done only once at the end of our sorting function, we’ll pass the left group, first number and right group all to <code>concat</code> so that all the recursions take place before the concatenation. The first element that we use to compare to the rest of our elements must be placed in a vector because <code>concat</code> works on collections. Try <code>concat</code> with a naked scalar type and you’ll see it throws an error.
-
-<pre><code class="language-klipse">
-(concat [1 2 3] 4 [5 6 7])
-</code></pre>
+Because concatenation is done only once at the end of our sorting function, we’ll pass the left group, first number and right group all to <code>concat</code> so that all the recursions take place before the concatenation. The first element must be placed in a vector because <code>concat</code> works on collections.
 
 <pre><code class="language-klipse">
 (def sort-numbers
   (fn [coll]
     (concat                             
-      (sort-numbers                     
-         (filterv (fn [x]                     ; <-- left group
-                    (< x (first coll))) 
-                  (rest coll)))         
-      [(first coll)]                          ; <-- first number
-      (sort-numbers 
-         (filterv (fn [x]                     
-                    (not (< x (first coll)))) ; <-- right group
-                  (rest coll))))))
+     (sort-numbers                     
+      (filterv (fn [x]                     ; <-- left group
+                 (< x (first coll))) 
+               (rest coll)))         
+     [(first coll)]                         ; <-- first number
+     (sort-numbers 
+      (filterv (fn [x]                     
+                 (not (< x (first coll)))) ; <-- right group
+               (rest coll))))))
 
 #_(sort-numbers [6 5 8 11 3 2 7 9 4 1 10 12])
 </code></pre>
@@ -228,17 +224,17 @@ We’re almost there! If you now apply <code>sort-numbers</code> to our test dat
 (def sort-numbers
   (fn [coll]
     (if (= [] coll)
-        []
-        (concat
-          (sort-numbers 
-            (filterv (fn [x]
-                       (< x (first coll)))
-                     (rest coll)))
-          [(first coll)]
-          (sort-numbers
-            (filterv (fn [x]
-                       (not (< x (first coll))))
-                     (rest coll)))))))
+      []
+      (concat
+       (sort-numbers 
+        (filterv (fn [x]
+                   (< x (first coll)))
+                 (rest coll)))
+       [(first coll)]
+       (sort-numbers
+        (filterv (fn [x]
+                   (not (< x (first coll))))
+                 (rest coll)))))))
 
 (sort-numbers [6 5 8 11 3 2 7 9 4 1 10 12])
 </code></pre>
