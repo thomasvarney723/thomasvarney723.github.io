@@ -2,6 +2,7 @@
 layout: post
 title:  "An interactive introduction to programming with one of the world's best languages"
 date:   2017-12-11 22:44:00 -0600
+permalink: /2017/12/11/intro-to-programming.html
 categories:
 comments: true
 ---
