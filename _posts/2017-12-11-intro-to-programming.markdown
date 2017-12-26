@@ -33,7 +33,7 @@ While the steps above make for a perfectly reasonable program, English might as 
 
 The language we’ll be using is a simple one comprised of only three things: functions, data and application. We’ve already mentioned numbers and collections, they fall into the category of data. Data is static and there is no more to it than what you see. Functions are the opposite, they're the doers that make a program worth writing at all.
 
-Application is how we combine functions and data to make new forms. If you think of functions as verbs and data as nouns, application is how we form sentences. Application is expressed with a grouping of parenthesis in which the first element is always a function and any subsequent elements are inputs to the function. At least one whitespace character must seperate each element. Let’s multiply some numbers.
+Application is how we combine functions and data to make new forms. If you think of functions as verbs and data as nouns, application is how we form sentences. It is expressed with a pair of parenthesis in which the first element is always a function and any subsequent elements are inputs to the function. Parens must always be balanced for code to be valid and at least one whitespace character must seperate each element. Let’s multiply some numbers.
 
 <pre><code class="language-klipse">
 (* 3 -4.9 11/7)
@@ -51,7 +51,7 @@ Chaining computations can be achieved by nesting expressions and this can be don
 (/ 2 (- 3 5 (+ 1 2) -10))
 </code></pre>
 
-Note that delimiters such as parens must always be balanced for code to be valid. The previous expression is equivalent to ‘2 / (3 - 5  - (1 + 2) - -10)’.
+The previous expression is equivalent to ‘2 / (3 - 5  - (1 + 2) - -10)’.
 
 Now what about those collections? Vectors, one type of collection, are notated with square brackets instead of parens. Vectors too can be nested to any depth. <code>[\$ "Hickey" -> [map true]]</code> is a vector of four items. Vectors can contain a mix of different types; in this case: a character, string, macro and another vector containing a function and a boolean. Also note that ordering matters.
 

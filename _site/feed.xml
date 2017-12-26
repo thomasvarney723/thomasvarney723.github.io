@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-12-25T21:00:42-06:00</updated><id>http://localhost:4000/</id><title type="html">thomasvarney723.github.io</title><subtitle></subtitle><entry><title type="html">An interactive introduction to programming with one of the world’s best languages</title><link href="http://localhost:4000/2017/12/11/intro-to-programming.html" rel="alternate" type="text/html" title="An interactive introduction to programming with one of the world's best languages" /><published>2017-12-11T22:44:00-06:00</published><updated>2017-12-11T22:44:00-06:00</updated><id>http://localhost:4000/2017/12/11/intro-to-programming</id><content type="html" xml:base="http://localhost:4000/2017/12/11/intro-to-programming.html">&lt;meta charset=&quot;utf-8&quot; /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-12-25T21:16:40-06:00</updated><id>http://localhost:4000/</id><title type="html">thomasvarney723.github.io</title><subtitle></subtitle><entry><title type="html">An interactive introduction to programming with one of the world’s best languages</title><link href="http://localhost:4000/2017/12/11/intro-to-programming.html" rel="alternate" type="text/html" title="An interactive introduction to programming with one of the world's best languages" /><published>2017-12-11T22:44:00-06:00</published><updated>2017-12-11T22:44:00-06:00</updated><id>http://localhost:4000/2017/12/11/intro-to-programming</id><content type="html" xml:base="http://localhost:4000/2017/12/11/intro-to-programming.html">&lt;meta charset=&quot;utf-8&quot; /&gt;
 
 &lt;p&gt;In this short tutorial, we’ll cover the minimal knowledge necessary to begin writing programs. Programming is actually a lot like math.&lt;/p&gt;
 
@@ -26,7 +26,7 @@
 
 &lt;p&gt;The language we’ll be using is a simple one comprised of only three things: functions, data and application. We’ve already mentioned numbers and collections, they fall into the category of data. Data is static and there is no more to it than what you see. Functions are the opposite, they’re the doers that make a program worth writing at all.&lt;/p&gt;
 
-&lt;p&gt;Application is how we combine functions and data to make new forms. If you think of functions as verbs and data as nouns, application is how we form sentences. Application is expressed with a grouping of parenthesis in which the first element is always a function and any subsequent elements are inputs to the function. At least one whitespace character must seperate each element. Let’s multiply some numbers.&lt;/p&gt;
+&lt;p&gt;Application is how we combine functions and data to make new forms. If you think of functions as verbs and data as nouns, application is how we form sentences. It is expressed with a pair of parenthesis in which the first element is always a function and any subsequent elements are inputs to the function. Parens must always be balanced for code to be valid and at least one whitespace character must seperate each element. Let’s multiply some numbers.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-klipse&quot;&gt;
 (* 3 -4.9 11/7)
@@ -44,7 +44,7 @@
 (/ 2 (- 3 5 (+ 1 2) -10))
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Note that delimiters such as parens must always be balanced for code to be valid. The previous expression is equivalent to ‘2 / (3 - 5  - (1 + 2) - -10)’.&lt;/p&gt;
+&lt;p&gt;The previous expression is equivalent to ‘2 / (3 - 5  - (1 + 2) - -10)’.&lt;/p&gt;
 
 &lt;p&gt;Now what about those collections? Vectors, one type of collection, are notated with square brackets instead of parens. Vectors too can be nested to any depth. &lt;code&gt;[\$ &quot;Hickey&quot; -&amp;gt; [map true]]&lt;/code&gt; is a vector of four items. Vectors can contain a mix of different types; in this case: a character, string, macro and another vector containing a function and a boolean. Also note that ordering matters.&lt;/p&gt;
 
