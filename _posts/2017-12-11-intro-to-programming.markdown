@@ -43,7 +43,7 @@ In the more familiar mathematical syntax this is equivalent to "3 x -4.9 x 11/7"
 
 Often we say that we "call" a function on some inputs or we "pass" some inputs to a function and are given back a "result" or "return value". Inputs to a function may also be called "arguments" or "parameters" to that function. Whatever the vernacular, it's always the case that we apply a function to zero or more inputs and the computer gives us back exactly one output.
 
-All the code in this tutorial can be edited and the computer will reevaluate it. The output is displayed just below each code snippet. Try swapping one of the inputs for <code>"eight"</code> in the previous example. Because strings, as they're called, have no meaning in the context of addition the computer will give a bogus response.
+All the code in this tutorial can be edited and the computer will reevaluate it. The output is displayed just below each code snippet. Try swapping one of the inputs for <code>"eight"</code> in the previous example. Because strings, as they're called, have no meaning in the context of addition the computer will respond with <code>NaN</code> meaning "not a number".
 
 Chaining computations can be achieved by nesting expressions and this can be done to any depth. The output of each subexpression becomes the input to another.
 
@@ -53,7 +53,7 @@ Chaining computations can be achieved by nesting expressions and this can be don
 
 The previous expression is equivalent to ‘2 / (3 - 5  - (1 + 2) - -10)’.
 
-Now what about those collections? Vectors, one type of collection, are notated with square brackets instead of parens. Vectors too can be nested to any depth. <code>[\$ "Hickey" -> [map true]]</code> is a vector of four items. Vectors can contain a mix of different types; in this case: a character, string, macro and another vector containing a function and a boolean. Also note that ordering matters.
+Now what about those collections? Vectors, one type of collection, are notated with square brackets instead of parens. Vectors too can be nested to any depth so long as the delimiters match. <code>[\$ "Hickey" -> [map true]]</code> is a vector of four items. Vectors can contain a mix of different types; in this case: a character, string, macro and another vector containing a function and a boolean. Also note that ordering matters.
 
 <pre><code class="language-klipse">
 (= [\$ "Hickey" -> [map true]] 
