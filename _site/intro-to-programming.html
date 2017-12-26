@@ -157,6 +157,8 @@
 </code></pre>
 
 <pre><code class="language-klipse">
+; concat can take zero or more vectors
+
 (concat [5 4] [] [3 2 1] [0])
 </code></pre>
 
@@ -300,7 +302,7 @@
 
 <p>Note that the functions passed to each <code>filterv</code> both have variables named <code>x</code>. One <code>x</code> doesn’t overshadow the other because neither function surrounds the other.</p>
 
-<p>We’re almost there! If you now apply <code>sort-numbers</code> to our test data by uncommenting the last expression, you’ll receive some sort of “call stack overflow” error. This is because there is nothing that stops the recursion from terminating. At the two places where we call <code>sort-numbers</code>, our function goes around and around. It’s for this reason <code>(take-while not-empty </code> was needed in the example showing the left evaluation branch. We need the recursion to stop when some criteria is met. According to our english program the terminating condition, sometimes called the “base case”, is when the collection no longer has anything in it. <code>if</code> is a supremely useful function that will enable us to insert this check. <code>if</code> takes three arguments: a test, an output if the test evaluates to <code>true</code> and an output if the test evaluates to <code>false</code>. The test for if our variable <code>coll</code> is empty can be written simply as <code>(= [] coll)</code> and the false branch of our <code>if</code> function will contain the logic we’ve already covered.</p>
+<p>We’re almost there! If you now apply <code>sort-numbers</code> to our test data by uncommenting the last expression, you’ll receive some sort of “call stack overflow” error. This is because there is nothing that stops the recursion from terminating. At the two places where we call <code>sort-numbers</code>, our function goes around and around. It’s for this reason <code>(take-while not-empty </code> was needed in the example showing the left evaluation branch. We need the recursion to stop when some criteria is met. According to our english program the terminating condition, sometimes called the “base case”, is when the collection no longer has anything in it. <code>if</code> is a supremely useful function that will enable us to insert this check. <code>if</code> takes three arguments: a test, an output if the test evaluates to <code>true</code> and an output if the test evaluates to <code>false</code>. The test for whether our variable <code>coll</code> is empty can be written simply as <code>(= [] coll)</code> and the false branch of our <code>if</code> function will contain the logic we’ve already covered.</p>
 
 <pre><code class="language-klipse">
 (def sort-numbers
