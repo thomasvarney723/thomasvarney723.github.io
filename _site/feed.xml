@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-12-25T22:05:58-06:00</updated><id>http://localhost:4000/</id><title type="html">thomasvarney723.github.io</title><subtitle></subtitle><entry><title type="html">An interactive introduction to programming with one of the world’s best languages</title><link href="http://localhost:4000/2017/12/11/intro-to-programming.html" rel="alternate" type="text/html" title="An interactive introduction to programming with one of the world's best languages" /><published>2017-12-11T22:44:00-06:00</published><updated>2017-12-11T22:44:00-06:00</updated><id>http://localhost:4000/2017/12/11/intro-to-programming</id><content type="html" xml:base="http://localhost:4000/2017/12/11/intro-to-programming.html">&lt;meta charset=&quot;utf-8&quot; /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-12-25T22:53:28-06:00</updated><id>http://localhost:4000/</id><title type="html">thomasvarney723.github.io</title><subtitle></subtitle><entry><title type="html">An interactive introduction to programming with one of the world’s best languages</title><link href="http://localhost:4000/2017/12/11/intro-to-programming.html" rel="alternate" type="text/html" title="An interactive introduction to programming with one of the world's best languages" /><published>2017-12-11T22:44:00-06:00</published><updated>2017-12-11T22:44:00-06:00</updated><id>http://localhost:4000/2017/12/11/intro-to-programming</id><content type="html" xml:base="http://localhost:4000/2017/12/11/intro-to-programming.html">&lt;meta charset=&quot;utf-8&quot; /&gt;
 
 &lt;p&gt;In this short tutorial, we’ll cover the minimal knowledge necessary to begin writing programs. Programming is actually a lot like math.&lt;/p&gt;
 
@@ -46,11 +46,11 @@
 
 &lt;p&gt;The previous expression is equivalent to ‘2 / (3 - 5  - (1 + 2) - -10)’.&lt;/p&gt;
 
-&lt;p&gt;Now what about those collections? Vectors, one type of collection, are notated with square brackets instead of parens. Vectors too can be nested to any depth so long as the delimiters match. &lt;code&gt;[\$ &quot;Hickey&quot; -&amp;gt; [map true]]&lt;/code&gt; is a vector of four items. Vectors can contain a mix of different types; in this case: a character, string, macro and another vector containing a function and a boolean. Also note that ordering matters.&lt;/p&gt;
+&lt;p&gt;Now what about those collections? Vectors, one type of collection, are notated with square brackets instead of parens. Vectors too can be nested to any depth so long as the delimiters match. &lt;code&gt;[\$ &quot;Hickey&quot; -&amp;gt; [true map]]&lt;/code&gt; is a vector of four items. Vectors can contain a mix of different types; in this case: a character, string, macro and another vector containing a boolean and a function. Also note that ordering matters.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-klipse&quot;&gt;
-(= [\$ &quot;Hickey&quot; -&amp;gt; [map true]] 
-   [&quot;Hickey&quot; [map true] \$ -&amp;gt;])
+(= [\$ &quot;Hickey&quot; -&amp;gt; [true map]] 
+   [&quot;Hickey&quot; [true map] \$ -&amp;gt;])
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Put the elements of the two vectors in the same order and you’ll see the computer will treat them as equal.&lt;/p&gt;
