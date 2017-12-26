@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-12-25T16:17:08-06:00</updated><id>http://localhost:4000/</id><title type="html">thomasvarney723.github.io</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">An interactive introduction to programming with one of the world’s best languages</title><link href="http://localhost:4000/2017/12/11/intro-to-programming.html" rel="alternate" type="text/html" title="An interactive introduction to programming with one of the world's best languages" /><published>2017-12-11T22:44:00-06:00</published><updated>2017-12-11T22:44:00-06:00</updated><id>http://localhost:4000/2017/12/11/intro-to-programming</id><content type="html" xml:base="http://localhost:4000/2017/12/11/intro-to-programming.html">&lt;meta charset=&quot;utf-8&quot; /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-12-25T19:52:54-06:00</updated><id>http://localhost:4000/</id><title type="html">thomasvarney723.github.io</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">An interactive introduction to programming with one of the world’s best languages</title><link href="http://localhost:4000/2017/12/11/intro-to-programming.html" rel="alternate" type="text/html" title="An interactive introduction to programming with one of the world's best languages" /><published>2017-12-11T22:44:00-06:00</published><updated>2017-12-11T22:44:00-06:00</updated><id>http://localhost:4000/2017/12/11/intro-to-programming</id><content type="html" xml:base="http://localhost:4000/2017/12/11/intro-to-programming.html">&lt;meta charset=&quot;utf-8&quot; /&gt;
 
 &lt;p&gt;In this short tutorial, we’ll cover the minimal knowledge necessary to begin writing programs. Programming is actually a lot like math.&lt;/p&gt;
 
@@ -257,6 +257,27 @@
 &lt;p&gt;Some of the information in this post may only be approximately true but further refinements will have to be left for another time.&lt;/p&gt;
 
 &lt;p&gt;Happy computing!&lt;/p&gt;
+
+&lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = https://thomasvarney723.github.io/2017/12/11/intro-to-programming.html // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://thomasvarney723.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+&lt;/script&gt;
+
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;https://disqus.com/?ref_noscript&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;
 
 &lt;style&gt;
 body {
