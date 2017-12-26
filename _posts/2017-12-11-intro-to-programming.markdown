@@ -33,7 +33,7 @@ While the steps above make for a perfectly reasonable program, English might as 
 
 The language we’ll be using is a simple one comprised of only three things: functions, data and application. We’ve already mentioned numbers and collections, they fall into the category of data. Data is static and there is no more to it than what you see. Functions are the opposite, they're the doers that make a program worth writing at all.
 
-Application is how we combine functions and data to make new forms. If you think of functions as verbs and data as nouns, application is how we form sentences. It is expressed with a pair of parenthesis in which the first element is always a function and any subsequent elements are inputs to the function. Parens must always be balanced for code to be valid and at least one whitespace character must seperate each element. Let’s multiply some numbers.
+Application is how we combine functions and data to make new forms. If you think of functions as verbs and data as nouns, application is how we form sentences. It is expressed using a pair of parenthesis in which the left-most element is always a function and any subsequent elements are inputs to the function. Each open paren must always have a matching close paren and at least one whitespace character must seperate each element. Let’s multiply some numbers.
 
 <pre><code class="language-klipse">
 (* 3 -4.9 11/7)
@@ -48,7 +48,7 @@ All the code in this tutorial can be edited and the computer will reevaluate it.
 Chaining computations can be achieved by nesting expressions and this can be done to any depth. The output of each subexpression becomes the input to another.
 
 <pre><code class="language-klipse">
-(/ 2 (- 3 5 (+ 1 2) -10))
+(/ 2 (- 3 5 (+ 1 2) (- 10)))
 </code></pre>
 
 The previous expression is equivalent to ‘2 / (3 - 5  - (1 + 2) - -10)’.
