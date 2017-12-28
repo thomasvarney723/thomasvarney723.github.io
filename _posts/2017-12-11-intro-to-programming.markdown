@@ -96,7 +96,7 @@ Many functions that you might expect to return a vector instead return a collect
 (concat [5 4] [] (concat [3] [2 1]) [0])
 </code></pre>
 
-<pre><code class="language-klipse"
+<pre><code class="language-klipse">
 (concat [5 4] [] (3 2 1) [0])
 </code></pre>
 
