@@ -135,7 +135,7 @@ Making functions that take only one input may seem limiting. You can add as many
 (weird-fn -2 3 2 4)
 </code></pre>
 
-When defining a function, the order of variable names in the vector of inputs is the same order used when calling it. In the previous expression, <code>-2</code> will be substituted for (the absent) <code>w</code>, <code>3</code> will be substituted for <code>x</code>, <code>2</code> for <code>y</code> and <code>4</code> for <code>z</code>.
+When defining a function, the order of variable names in the vector of inputs corresponds to the ordering of inputs when calling that function. In the previous expression, <code>-2</code> will be substituted for (the absent) <code>w</code>, <code>3</code> will be substituted for <code>x</code>, <code>2</code> for <code>y</code> and <code>4</code> for <code>z</code>.
 
 Now that we know how to define functions, let’s get back to sorting!
 
