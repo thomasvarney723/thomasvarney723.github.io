@@ -263,8 +263,6 @@ ClojureScript is a dialect of Clojure and designed to run in a web browser. The 
 
 Keep in mind that you learn to program by doing it, not just reading about it, so get to it!
 
-Some of the information in this post may only be approximately true but further refinements will have to be left for another time.
-
 Happy computing!
 
 {% if page.comments %}
