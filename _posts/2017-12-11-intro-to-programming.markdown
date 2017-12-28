@@ -259,7 +259,7 @@ We’re almost there! If you now apply <code>sort-numbers</code> to our test dat
 (sort-numbers [6 5 8 11 3 2 7 9 4 1 10 12])
 </code></pre>
 
-Returning an empty vector in the case that our collection is empty works because <code>concat</code>-ing any vector with an empty vector returns the same vector. Another way to think about this is that we are going to recurse until we get to a collection that we know to be sorted - an empty one.
+Returning an empty vector in the case that our collection is empty works because <code>concat</code>-ing any collection with an empty collection returns the same collection. Another way to think about this is that we are going to recurse until we get to a collection that we know to be sorted - an empty one.
 
 As it turns out, the algorithm we’ve just implemented is known as Quicksort, one of many different sorting algorithms. What did you expect for your first program, a general purpose artificial intelligence? Surely, sorting functionality is a necessary component so you’re part-way there!
 
