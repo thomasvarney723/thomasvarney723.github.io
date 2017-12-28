@@ -90,7 +90,15 @@ Vectors have functions relevant for the type of data they are.
 (concat [5 4] [] [3 2 1] [0])
 </code></pre>
 
-Many functions return a vector written with parens instead of square brackets such as in the examples containing <code>rest</code> and <code>concat</code>. Don't worry about this apparent inconsistency for now.
+Many functions that you might expect to return a vector instead return a collection written with parens as in the expamples containing <code>rest</code> and <code>concat</code>. These are called sequences and are another type of collection. Sequences can be passed into functions like rest and concat without a problem. However, know that they can't be input directly to functions because they look like application to the computer. If you're ever in need of turning a sequence back into a vector <code>vec</code> will do the job.
+
+<pre><code class="language-klipse">
+(concat [5 4] [] (concat [3] [2 1]) [0])
+</code></pre>
+
+<pre><code class="language-klipse"
+(concat [5 4] [] (3 2 1) [0])
+</code></pre>
 
 Functions, data and application are all well and good but what’s the point of applying a function to data when we get the same result every time? We can just as easily write the result instead of the expression. There isn’t a point. To do any useful work, we need to build new functions.
 
@@ -155,38 +163,38 @@ Those to be placed on either side can be selected with <code>rest</code>.
 (rest [6 5 8 11 3 2 7 9 4 1 10 12])
 </code></pre>
 
-Splitting the rest of the elements in our collection into the lesser and greater groups is the trickiest part of the program. We can go to the trouble of writing a bespoke function that does this but <code>filterv</code> actually does just what we need.
+Splitting the rest of the elements in our collection into the lesser and greater groups is the trickiest part of the program. We can go to the trouble of writing a bespoke function that does this but <code>filter</code> actually does just what we need.
 
 <pre><code class="language-klipse">
-(filterv (fn [x]
-	   (< x (first [6 5 8 11 3 2 7 9 4 1 10 12])))
-         (rest [6 5 8 11 3 2 7 9 4 1 10 12]))
+(filter (fn [x]
+	  (< x (first [6 5 8 11 3 2 7 9 4 1 10 12])))
+        (rest [6 5 8 11 3 2 7 9 4 1 10 12]))
 </code></pre>
 
-<code>filterv</code> takes a function and a collection and returns only the elements of that collection which return <code>true</code> when applied to the function. Here we’ve selected the rest of the elements that are less than the first element in the collection.
+<code>filter</code> takes a function and a collection and returns only the elements of that collection which return <code>true</code> when applied to the function. Here we’ve selected the rest of the elements that are less than the first element in the collection.
 
 Just as we did in the example containing <code>(< 17 6)</code> we can generalize this expression by replacing the vector of numbers with a variable. "coll" is often used for collections. Let's give the function a name too while we're at it.
 
 <pre><code class="language-klipse">
 (def lesser-numbers
   (fn [coll]
-    (filterv (fn [x]
-    	       (< x (first coll)))
-             (rest coll))))
+    (filter (fn [x]
+    	      (< x (first coll)))
+            (rest coll))))
 
 (lesser-numbers [6 5 8 11 3 2 7 9 4 1 10 12])
 </code></pre>
 
-Notice how the function passed to <code>filterv</code> refers to  <code>coll</code>, the variable in the surrounding function. Functions can reference anything in or surrounding them. A variable defined locally, a variable defined in a surrounding function, something <code>def</code>-ed in the program, a built-in function - these are all said to be "in scope". If a function uses the same name for a variable as something that is already in scope it won't affect either one. However, the variable name in the inner function will overshadow the outer thing preventing the outer thing from being referenced in the inner function. Scoping can be a strange concept until you've worked with it, luckily none of the code here does any overshadowing. 
+Notice how the function passed to <code>filter</code> refers to  <code>coll</code>, the variable in the surrounding function. Functions can reference anything in or surrounding them. A variable defined locally, a variable defined in a surrounding function, something <code>def</code>-ed in the program, a built-in function - these are all said to be "in scope". If a function uses the same name for a variable as something that is already in scope it won't affect either one. However, the variable name in the inner function will overshadow the outer thing preventing the outer thing from being referenced in the inner function. Scoping can be a strange concept until you've worked with it, luckily none of the code here does any overshadowing. 
 
-If you take the output of <code>(lesser-numbers [6 5 8 11 3 2 7 9 4 1 10 12])</code> and repeatedly call <code>lesser-numbers</code> on it, you’ll begin to see the far left branch of our evaluation tree. Though you can do this by hand it can also be modeled within the language.
+If you take the output of <code>(lesser-numbers [6 5 8 11 3 2 7 9 4 1 10 12])</code> and repeatedly call <code>lesser-numbers</code> on it, you’ll begin to see the far left branch of our evaluation tree. Though you can do this by hand (if you turn the sequences back into vectors) it can also be modeled within the language.
 
 <pre><code class="language-klipse">
 (def lesser-numbers
   (fn [coll]
-    (filterv (fn [x]
-    	       (< x (first coll)))
-             (rest coll))))
+    (filter (fn [x]
+    	      (< x (first coll)))
+            (rest coll))))
 
 (take-while not-empty
             (iterate lesser-numbers
@@ -197,13 +205,13 @@ If you take the output of <code>(lesser-numbers [6 5 8 11 3 2 7 9 4 1 10 12])</c
 
 Testing ideas like this by giving the computer snippets of code and examining the return value is akin to having a conversation with the computer in which you can bounce ideas off it (“Do these pants go with my shoes?”).
 
-To collect elements which go in the right-side group we need only to select the elements which didn’t make the cut for the left-side group. We can do this in the same way but slip <code>not</code> into the function we pass to <code>filterv</code>.
+To collect elements which go in the right-side group we need only to select the elements which didn’t make the cut for the left-side group. We can do this in the same way but slip <code>not</code> into the function we pass to <code>filter</code>.
 
 <pre><code class="language-klipse">
 ((fn [coll]
-   (filterv (fn [x]
-    	      (not (< x (first coll))))
-            (rest coll)))
+   (filter (fn [x]
+    	     (not (< x (first coll))))
+           (rest coll)))
  [6 5 8 11 3 2 7 9 4 1 10 12])
 </code></pre>
 
@@ -216,19 +224,19 @@ Because concatenation is done only once at the end of our sorting function, we�
   (fn [coll]
     (concat                             
      (sort-numbers                     
-      (filterv (fn [x]                     ; <-- left group
-                 (< x (first coll))) 
-               (rest coll)))         
-     [(first coll)]                         ; <-- first number
+      (filter (fn [x]                     ; <-- left group
+                (< x (first coll))) 
+              (rest coll)))         
+     [(first coll)]                        ; <-- first number
      (sort-numbers 
-      (filterv (fn [x]                     
-                 (not (< x (first coll)))) ; <-- right group
-               (rest coll))))))
+      (filter (fn [x]                     
+                (not (< x (first coll)))) ; <-- right group
+              (rest coll))))))
 
 #_(sort-numbers [6 5 8 11 3 2 7 9 4 1 10 12])
 </code></pre>
 
-Note that the functions passed to each <code>filterv</code> both have variables named <code>x</code>. One <code>x</code> doesn't overshadow the other because neither function surrounds the other.
+Note that the functions passed to each <code>filter</code> both have variables named <code>x</code>. One <code>x</code> doesn't overshadow the other because neither function surrounds the other.
 
 We’re almost there! If you now apply <code>sort-numbers</code> to our test data by uncommenting the last expression, you’ll receive some sort of "call stack overflow" error. This is because there is nothing that stops the recursion from terminating. At the two places where we call <code>sort-numbers</code>, our function goes around and around. It’s for this reason <code>(take-while not-empty </code> was needed in the example showing the left evaluation branch. We need the recursion to stop when some criteria is met. According to our english program the terminating condition, sometimes called the "base case", is when the collection no longer has anything in it. <code>if</code> is a supremely useful function that will enable us to insert this check. <code>if</code> takes three arguments: a test, an output if the test evaluates to <code>true</code> and an output if the test evaluates to <code>false</code>. The test for whether our variable <code>coll</code> is empty can be written simply as <code>(= [] coll)</code> and the false branch of our <code>if</code> function will contain the logic we've already covered.
 
@@ -239,14 +247,14 @@ We’re almost there! If you now apply <code>sort-numbers</code> to our test dat
       []
       (concat
        (sort-numbers 
-        (filterv (fn [x]
+        (filter (fn [x]
                    (< x (first coll)))
-                 (rest coll)))
+                (rest coll)))
        [(first coll)]
        (sort-numbers
-        (filterv (fn [x]
-                   (not (< x (first coll))))
-                 (rest coll)))))))
+        (filter (fn [x]
+                  (not (< x (first coll))))
+                (rest coll)))))))
 
 (sort-numbers [6 5 8 11 3 2 7 9 4 1 10 12])
 </code></pre>
