@@ -43,7 +43,7 @@ In the more familiar mathematical syntax this is equivalent to "3 x -4.9 x 11/7"
 
 Often we say that we "call" a function on some inputs or we "pass" some inputs to a function and are given back a "result" or "return value". Inputs to a function may also be called "arguments" or "parameters" to that function. Whatever the vernacular, it's always the case that we apply a function to zero or more inputs and the computer gives us back exactly one output.
 
-All the code in this tutorial can be edited and the computer will reevaluate it. The output is displayed just below each code snippet. Try swapping one of the inputs for <code>"eight"</code> in the previous example. Because strings, as they're called, have no meaning in the context of addition the computer will respond with <code>NaN</code> meaning "not a number".
+All the code in this tutorial can be edited and the computer will reevaluate it. The output is displayed just below each code snippet. Try swapping one of the inputs for <code>"eight"</code> in the previous example. Because a string, as it's called, has no meaning in the context of addition the computer will respond with <code>NaN</code> meaning "not a number".
 
 Chaining computations can be achieved by nesting expressions and this can be done to any depth. The output of each subexpression becomes the input to another.
 
@@ -143,7 +143,7 @@ Making functions that take only one input may seem limiting. You can add as many
 (weird-fn -2 3 2 4)
 </code></pre>
 
-When defining a function, the order of variable names in the vector of inputs corresponds to the ordering of inputs when calling that function. In the previous expression, <code>-2</code> will be substituted for (the absent) <code>w</code>, <code>3</code> will be substituted for <code>x</code>, <code>2</code> for <code>y</code> and <code>4</code> for <code>z</code>.
+When calling a function, the order of arguments corresponds to the ordering of the vector of variables where that function is defined. In the previous expression, <code>-2</code> will be substituted for (the absent) <code>w</code>, <code>3</code> will be substituted for <code>x</code>, <code>2</code> for <code>y</code> and <code>4</code> for <code>z</code>.
 
 Now that we know how to define functions, let’s get back to sorting!
 
