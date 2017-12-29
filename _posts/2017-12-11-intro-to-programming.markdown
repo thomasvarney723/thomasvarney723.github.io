@@ -9,6 +9,10 @@ comments: true
 
 <meta charset="utf-8">
 
+<script>
+document.querySelector(".site-nav").remove();
+</script>
+
 In this short tutorial, we’ll cover the minimal knowledge necessary to begin writing programs. Programming is actually a lot like math.
 
 Wait! Don’t leave just yet! Fortunately, it's nothing like the math classes you’ve likely been subjected to in school.
@@ -273,6 +277,11 @@ Keep in mind that you learn to program by doing it, not just reading about it, s
 
 Happy computing!
 
+
+<script>
+document.querySelector(".site-footer").remove();
+</script>
+
 {% if page.comments %}
 <div id="disqus_thread"></div>
 <script>
@@ -302,8 +311,6 @@ body {
 </style>
 
 <link rel="stylesheet" type="text/css" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css">
-
-<script> console.log("hello from script tag.") </script>
 
 <script>
   window.klipse_settings = {
