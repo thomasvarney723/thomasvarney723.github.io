@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "An interactive introduction to programming with one of the world's best languages"
-date:   2017-12-11 22:44:00 -0600
+date:   2017-12-29 00:00:00 -0600
 permalink: /intro-to-programming
 categories:
 comments: true
@@ -90,7 +90,7 @@ Vectors have functions relevant for the type of data they are.
 (concat [5 4] [] [3 2 1] [0])
 </code></pre>
 
-Many functions that you might expect to return a vector instead return a collection written with parens as in the expamples containing <code>rest</code> and <code>concat</code>. These are called sequences and are another type of collection. Sequences can be passed into functions like rest and concat without a problem. However, know that they can't be input directly to functions because they look like application to the computer. If you're ever in need of turning a sequence back into a vector <code>vec</code> will do the job.
+Many functions that you might expect to return a vector instead return a collection written with parens as in the expamples containing <code>rest</code> and <code>concat</code>. These are called sequences and are another type of collection. Sequences can be passed into functions like rest and concat without a problem. However, know that they can't be input directly to functions because they look like application to the computer. You don't need to worry about the distinction between the two right now but if you're ever in need of turning a sequence back into a vector <code>vec</code> will do the job.
 
 <pre><code class="language-klipse">
 (concat [5 4] [] (concat [3] [2 1]) [0])
@@ -185,7 +185,7 @@ Just as we did in the example containing <code>(< 17 6)</code> we can generalize
 (lesser-numbers [6 5 8 11 3 2 7 9 4 1 10 12])
 </code></pre>
 
-Notice how the function passed to <code>filter</code> refers to  <code>coll</code>, the variable in the surrounding function. Functions can reference anything in or surrounding them. A variable defined locally, a variable defined in a surrounding function, something <code>def</code>-ed in the program, a built-in function - these are all said to be "in scope". If a function uses the same name for a variable as something that is already in scope it won't affect either one. However, the variable name in the inner function will overshadow the outer thing preventing the outer thing from being referenced in the inner function. Scoping can be a strange concept until you've worked with it, luckily none of the code here does any overshadowing. 
+Notice how the function passed to <code>filter</code> refers to  <code>coll</code>, the variable in the surrounding function. Functions can reference anything in or surrounding them. A variable defined locally, a variable defined in a surrounding function, something <code>def</code>-ed in the program, a built-in function - these are all said to be "in scope". If a function uses the same name for a variable as something that is already in scope it won't affect either one. However, the variable name in the inner function will overshadow the outer name preventing the outer name from being referenced in the inner function. Scoping can be a strange concept until you've worked with it, luckily none of the code here does any overshadowing. 
 
 If you take the output of <code>(lesser-numbers [6 5 8 11 3 2 7 9 4 1 10 12])</code> and repeatedly call <code>lesser-numbers</code> on it, you’ll begin to see the far left branch of our evaluation tree. Though you can do this by hand (if you turn the sequences back into vectors) it can also be modeled within the language.
 
@@ -265,7 +265,7 @@ As it turns out, the algorithm we’ve just implemented is known as Quicksort, o
 
 <br>
 
-The language we’ve been using is known as ClojureScript and it’s one of the world's best languages because of its simplicity. It has far fewer syntax and semantics than most other programming languages. This raw simplicity makes it more powerful than other languages, not less.
+The language we’ve been using is known as ClojureScript and it’s one of the world's best languages because of its simplicity. It has far fewer syntax and semantics than most other programming languages. This simplicity makes it more powerful than other languages, not less.
 
 ClojureScript is a dialect of Clojure and designed to run in a web browser. The code we’ve explored here works in both languages. If you’re interested in playing more with Clojure, <a href="repl.it">repl.it</a> has a browser-based environment with a scratch area. A cheatsheet of built-in functions can be found at <a href="https://clojure.org/api/cheatsheet">https://clojure.org/api/cheatsheet</a> and <a href="clojurescriptkoans.com">clojurescriptkoans.com</a> and <a href="4Clojure.com">4Clojure.com</a> both offer little puzzles to cut your teeth on.
 
