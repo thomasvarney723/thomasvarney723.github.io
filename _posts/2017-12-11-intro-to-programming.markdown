@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "An interactive introduction to programming with one of the world's best languages"
+title:  "An interactive introduction to programming"
 date:   2017-12-29 00:00:00 -0600
 permalink: /intro-to-programming
 categories:
