@@ -60,8 +60,8 @@ The previous expression is equivalent to ‘2 / (3 - 5  - (1 + 2) - -10)’.
 Now what about those collections? Vectors, one type of collection, are notated with square brackets instead of parens. Vectors too can be nested to any depth so long as the delimiters match. <code>[\$ "Hickey" -> [true map]]</code> is a vector of four items. Vectors can contain a mix of different types; in this case: a character, string, macro and another vector containing a boolean and a function. Also note that ordering matters.
 
 <pre><code class="language-klipse">
-(= [\$ "Hickey" -> [true map]] 
-   ["Hickey" [true map] \$ ->])
+(= [\$ "Hickey" > [true map]] 
+   ["Hickey" [true map] \$ >])
 </code></pre>
 
 Put the elements of the two vectors in the same order and you'll see the computer will treat them as equal.
